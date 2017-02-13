@@ -176,9 +176,11 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\NinjectDependencyResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -262,9 +264,9 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Ua\About.cshtml" />
+    <Content Include="Views\Ua\Contact.cshtml" />
+    <Content Include="Views\Ua\Index_ua.cshtml" />
     <Content Include="Views\Shared\_PartHeader.cshtml" />
     <Content Include="Views\Shared\_PartFooter_Ua.cshtml" />
     <Content Include="Views\Shared\_PartHeader_Ua.cshtml" />
@@ -272,6 +274,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Ru\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

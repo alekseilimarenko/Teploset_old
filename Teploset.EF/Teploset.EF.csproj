@@ -73,6 +73,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\News.cs" />
+    <Compile Include="Entities\Post.cs" />
+    <Compile Include="Entities\Vacancy.cs" />
+    <Compile Include="Interfaces\ITeplosetRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

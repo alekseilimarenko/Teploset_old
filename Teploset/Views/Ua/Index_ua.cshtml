@@ -1,4 +1,10 @@
-﻿<!--  start slider-->
+﻿@using Teploset.EF.Entities
+@{
+    var postsList = ViewBag.Posts as List<Post>;
+    var newsList = ViewBag.Newses as List<News>;
+}
+
+<!--  start slider-->
 <div id="slider">
     <div class="flexslider">
         <ul class="slides">
@@ -67,13 +73,14 @@
     <div class="clearfix"></div>
 </div>
 <!-- end slider -->
+
 <!-- top menu -->
 <section id="icons" class="bottom-border-shadow">
     <div class="container bottom-border">
         <div class="row padding-vert-40">
             <!-- Icons -->
             <div class="col-md-3 col-sm-6 text-center">
-                <a href=@Url.Action("#")>
+                <a href="@Url.Action("Index_ua")">
                     <div class="item project-post">
                         <div class="item_box">
                             <div class="square_coner">
@@ -111,7 +118,7 @@
                 </a>
             </div>
             <div class="col-md-3 col-sm-6 text-center">
-                <a href="ua/main_tarif.html">
+                <a href="@Url.Action("Index_ua")">
                     <div class="item project-post">
                         <div class="item_box">
                             <div class="square_coner">
@@ -130,24 +137,23 @@
                 </a>
             </div>
             <div class="col-md-3 col-sm-6 text-center">
-                <a href="#">
-                    <a href="http://teplo.gov.ua/#subsidii">
-                        <div class="item project-post">
-                            <div class="item_box">
-                                <div class="square_coner">
-                                    <span class="texts-a"><i class="fa fa-pencil-square-o color-primary"></i></span>
-                                </div>
-                                <h3>Оформлення субсидії</h3>
+                <a href="http://teplo.gov.ua/#subsidii">
+                    <div class="item project-post">
+                        <div class="item_box">
+                            <div class="square_coner">
+                                <span class="texts-a"><i class="fa fa-pencil-square-o color-primary"></i></span>
                             </div>
-                            <div class="col-xs-6 col-sm-6 col-md-3 hover-box">
-                                <div class="inner-hover-box">
-                                    <p>
-                                        Роз'яснення<br/>щодо<br/>оформлення<br/>субсидій
-                                    </p>
-                                </div>
+                            <h3>Оформлення субсидії</h3>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-3 hover-box">
+                            <div class="inner-hover-box">
+                                <p>
+                                    Роз'яснення<br/>щодо<br/>оформлення<br/>субсидій
+                                </p>
                             </div>
                         </div>
-                    </a>
+                    </div>
+                </a>
             </div>
             <!-- End Icons -->
         </div>
@@ -155,6 +161,7 @@
 </section>
 <!-- end top menu-->
 
+<!--posts start-->
 <section id="post" class="bottom-border-shadow">
     <div class="container bottom-border">
         <div class="row padding-vert-40">

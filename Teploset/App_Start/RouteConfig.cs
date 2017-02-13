@@ -16,7 +16,7 @@ namespace Teploset
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Ua", action = "Index_ua", id = UrlParameter.Optional }
             );
         }
     }
