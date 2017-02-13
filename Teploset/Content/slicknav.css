@@ -167,7 +167,7 @@
 	.slicknav_brand {
 		content: 'MTM';
 		float: left;
-		background-image: url('../images/logo_ua.png');
+		background-image: url('./images/logo_ua.png');
 		background-size: cover;
 		color: #fff;
 		font-size: 18px;
