@@ -200,8 +200,8 @@
     <Content Include="Content\images\newsimg\lowercost.jpg" />
     <Content Include="Content\images\newsimg\money.jpg" />
     <Content Include="Content\images\newsimg\news1.png" />
-    <Content Include="Content\images\newsimg\recent-post1.jpg" />
-    <Content Include="Content\images\newsimg\recent-post2.jpg" />
+    <Content Include="Content\images\newsimg\new_year.jpg" />
+    <Content Include="Content\images\newsimg\energy.jpg" />
     <Content Include="Content\images\newsimg\warning.png" />
     <Content Include="Content\images\slides\001.JPG" />
     <Content Include="Content\images\slides\002.jpg" />

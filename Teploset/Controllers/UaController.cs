@@ -20,7 +20,7 @@ namespace Teploset.Controllers
         {
             ViewBag.Posts = repository.Posts;
             ViewBag.Newses = repository.Newses;
-            ViewBag.Vacansies = repository.
+            ViewBag.Vacansies = repository.Vacancies;
 
             return View();
         }

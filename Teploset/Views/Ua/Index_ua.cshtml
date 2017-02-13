@@ -2,6 +2,7 @@
 @{
     var postsList = ViewBag.Posts as List<Post>;
     var newsList = ViewBag.Newses as List<News>;
+    var vacancies = ViewBag.Vacansies as List<Vacancy>;
 }
 
 <!--  start slider-->
@@ -173,46 +174,22 @@
                     </div>
                     <div class="panel-body">
                         <ul class="posts-list">
-                            <li>
-                                <div class="recent-post">
-                                    <img class="pull-left" src="~/Content/images/newsimg/warning.png" alt="images" />
-                                    <a href="#" class="posts-title">Аварійне відключення</a>
-                                    <br>
-                                    <span class="posts-content">До уваги мешканців Олександрівського району</span>
-                                    <br>
-                                    <span class="post-date">16-01-2017</span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="recent-post">
-                                    <img class="pull-left" src="~/Content/images/newsimg/warning.png" alt="images" />
-                                    <a href="#" class="posts-title">Аварійне відключення</a>
-                                    <br>
-                                    <span class="posts-content">До уваги мешканців Вознесенівского району</span>
-                                    <br>
-                                    <span class="post-date">15-01-2017</span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="recent-post">
-                                    <img class="pull-left" src="~/Content/images/newsimg/warning.png" alt="images" />
-                                    <a href="#" class="posts-title">Аварійне відключення</a>
-                                    <br>
-                                    <span class="posts-content">До уваги мешканців Дніпровського району</span>
-                                    <br>
-                                    <span class="post-date">14-01-2017</span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="recent-post">
-                                    <img class="pull-left" src="~/Content/images/newsimg/warning.png" alt="images" />
-                                    <a href="#" class="posts-title">Аварійне відключення</a>
-                                    <br>
-                                    <span class="posts-content">До уваги мешканців Шевченківського району</span>
-                                    <br>
-                                    <span class="post-date">12-01-2017</span>
-                                </div>
-                            </li>
+                            @if (postsList != null)
+                            {
+                                for (int i = 0; i <= 4; i++)
+                                {
+                                    <li>
+                                        <div class="recent-post">
+                                            <img class="pull-left" src="~/Content/images/newsimg/warning.png" alt="images" />
+                                            <a href="#" class="posts-title">Аварійне відключення</a>
+                                            <br>
+                                            <span class="posts-content">@postsList[i].PostTitle</span>
+                                            <br>
+                                            <span class="post-date">@postsList[i].DateTimeCreate.ToShortDateString()</span>
+                                        </div>
+                                    </li>
+                                }
+                            } 
                         </ul>
                     </div>
                 </div>
@@ -225,42 +202,21 @@
                     </div>
                     <div class="panel-body">
                         <ul class="posts-list margin-top-10">
-                            <li>
-                                <div class="recent-post">
-                                    <img class="pull-left" width="64" height="48" src="~/Content/images/newsimg/money.jpg" alt="images" />
-                                    <a href="#" class="posts-title">Оплата послуг Концерна "МТМ" без комісії.</a>
-                                    <br>
-                                    <span class="post-date">18-01-2017</span>
-                                </div>
-                                <br />
-                            </li>
-                            <li>
-                                <div class="recent-post">
-                                    <img class="pull-left" width="64" height="48" src="~/Content/images/newsimg/lowercost.jpg" alt="images" />
-                                    <a href="#" class="posts-title">За два місяці Концерн «МТМ» з'єкономив майже 2 млн грн</a>
-                                    <br>
-                                    <span class="post-date">12-01-2017</span>
-                                </div>
-                                <br />
-                            </li>
-                            <li>
-                                <div class="recent-post">
-                                    <img class="pull-left" width="64" height="48" src="~/Content/images/newsimg/recent-post1.jpg" alt="images" />
-                                    <a href="#" class="posts-title">Вітання з новим роком</a>
-                                    <br>
-                                    <span class="post-date">30-12-2016</span>
-                                </div>
-                                <br />
-                            </li>
-                            <li>
-                                <div class="recent-post">
-                                    <img class="pull-left" width="64" height="48" src="~/Content/images/newsimg/recent-post2.jpg" alt="images" />
-                                    <a href="#" class="posts-title">Вітання з днем енергетика</a>
-                                    <br>
-                                    <span class="post-date">29-12-2016</span>
-                                </div>
-                                <br />
-                            </li>
+                            @if (newsList != null)
+                            {
+                                for (int i = 0; i <= 4; i++)
+                                {
+                                    <li>
+                                        <div class="recent-post">
+                                            <img class="pull-left" width="64" height="48" src="~/Content/images/newsimg/energy.jpg" alt="images"/>
+                                            <a href="#" class="posts-title">@newsList[i].NewsTitle</a>
+                                            <br>
+                                            <span class="post-date">@newsList[i].DateTimeCreate.ToShortDateString()</span>
+                                        </div>
+                                    </li>
+                                    <br />
+                                }
+                            }
                         </ul>
                     </div>
                 </div>
@@ -273,28 +229,18 @@
                     </div>
                     <div class="panel-body text-left">
                         <ul class="list-unstyled ">
-                            <li>
-                                <i class="fa fa-user color-primary"></i>&nbsp;&nbsp;&nbsp;Машиніст (кочегар) котельні
-                            </li>
-                            <br/>
-                            <li>
-                                <i class="fa fa-user color-primary"></i>&nbsp;&nbsp;&nbsp;Инженер-конструктор
-                            </li>
-                            <br/>
-                            <li>
-                                <i class="fa fa-user color-primary"></i>&nbsp;&nbsp;&nbsp;Інженер з проектно-кошторисної роботи
-                            </li>
-                            <br/>
-                            <li>
-                                <i class="fa fa-user color-primary"></i>&nbsp;&nbsp;&nbsp;Інженер-програміст
-                            </li>
-                            <br/>
-                            <br/>
-                            <li>
-                                <a href="#">Детальніше &raquo;</a>
-                            </li>
-                            <br/>
+                            @if (vacancies != null)
+                            {
+                                for (int i = 0; i <= 3; i++)
+                                {
+                                    <li>
+                                        <p><i class="fa fa-user color-primary"></i>&nbsp;&nbsp;&nbsp;@vacancies[i].VacancyName</p>
+                                    </li>
+                                }
+                            }
                         </ul>
+                        <br/>
+                        <a href="#">Детальніше &raquo;</a>
                     </div>
                 </div>
             </div>
