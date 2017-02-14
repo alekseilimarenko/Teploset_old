@@ -13,5 +13,15 @@ namespace Teploset.Controllers
         {
             return View();
         }
+
+        public ActionResult About_ru()
+        {
+            return View();
+        }
+
+        public ActionResult Contact_ru()
+        {
+            return View();
+        }
     }
 }

@@ -281,6 +281,8 @@
     <Content Include="Views\Shared\_PartHeader_ua.cshtml" />
     <Content Include="Views\Ru\Index_ru.cshtml" />
     <Content Include="Views\Shared\_PartFooter_ru.cshtml" />
+    <Content Include="Views\Ru\Contact_ru.cshtml" />
+    <Content Include="Views\Ru\About_ru.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
