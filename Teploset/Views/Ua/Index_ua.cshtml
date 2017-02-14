@@ -176,16 +176,16 @@
                         <ul class="posts-list">
                             @if (postsList != null)
                             {
-                                for (int i = 0; i <= 4; i++)
+                                foreach (var post in postsList)
                                 {
                                     <li>
                                         <div class="recent-post">
                                             <img class="pull-left" src="~/Content/images/newsimg/warning.png" alt="images" />
                                             <a href="#" class="posts-title">Аварійне відключення</a>
                                             <br>
-                                            <span class="posts-content">@postsList[i].PostTitle</span>
+                                            <span class="posts-content">@post.PostTitle</span>
                                             <br>
-                                            <span class="post-date">@postsList[i].DateTimeCreate.ToShortDateString()</span>
+                                            <span class="post-date">@post.DateTimeCreate.ToShortDateString()</span>
                                         </div>
                                     </li>
                                 }
@@ -204,14 +204,14 @@
                         <ul class="posts-list margin-top-10">
                             @if (newsList != null)
                             {
-                                for (int i = 0; i <= 4; i++)
+                                foreach (var news in newsList)
                                 {
                                     <li>
                                         <div class="recent-post">
                                             <img class="pull-left" width="64" height="48" src="~/Content/images/newsimg/energy.jpg" alt="images"/>
-                                            <a href="#" class="posts-title">@newsList[i].NewsTitle</a>
+                                            <a href="#" class="posts-title">@news.NewsTitle</a>
                                             <br>
-                                            <span class="post-date">@newsList[i].DateTimeCreate.ToShortDateString()</span>
+                                            <span class="post-date">@news.DateTimeCreate.ToShortDateString()</span>
                                         </div>
                                     </li>
                                     <br />

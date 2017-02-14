@@ -53,6 +53,14 @@
       <HintPath>..\packages\Castle.Core.3.3.3\lib\net45\Castle.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -175,6 +183,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Classes\Consts.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UaController.cs" />
     <Compile Include="Global.asax.cs">
@@ -240,7 +249,6 @@
     <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
     <Content Include="Scripts\jquery.gmap3.min.js" />
     <Content Include="Scripts\jquery.slicknav.js" />
-    <Content Include="Scripts\jquery.slicknav.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
@@ -289,6 +297,10 @@
     <ProjectReference Include="..\Teploset.EF\Teploset.EF.csproj">
       <Project>{ebc9a884-2d7b-4a1f-b8c8-f26dafa5a498}</Project>
       <Name>Teploset.EF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Teploset.Utils\Teploset.Utils.csproj">
+      <Project>{34f8d2a4-da7b-4b70-920b-8fd43d245c31}</Project>
+      <Name>Teploset.Utils</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
