@@ -20,8 +20,8 @@ TABLE OF CONTENTS
 }
 
 body {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     color: #8a8a8a;
     font-size: 14px;
     font-family: Arial, Helvetica, sans-serif;
@@ -40,7 +40,7 @@ form {
 }
 
 img {
-    border: 0px;
+    border: 0;
 }
 
 .l-float {
@@ -174,7 +174,7 @@ input {
         font-weight: bolder;
         font-size: 45px;
         letter-spacing: 1px;
-        text-shadow: 0px -1px 0px #000;
+        text-shadow: 0 -1px 0 #000;
         color: #005fa1;
     }
 
@@ -236,9 +236,9 @@ input {
     color: #202224;
     float: left;
     margin-bottom: -10px;
-    -webkit-box-shadow: 1px 3px 13px 0px rgba(158, 158, 158, 0.75);
-    -moz-box-shadow: 1px 3px 13px 0px rgba(158, 158, 158, 0.75);
-    box-shadow: 1px 3px 13px 0px rgba(158, 158, 158, 0.75);
+    -webkit-box-shadow: 1px 3px 13px 0 rgba(158, 158, 158, 0.75);
+    -moz-box-shadow: 1px 3px 13px 0 rgba(158, 158, 158, 0.75);
+    box-shadow: 1px 3px 13px 0 rgba(158, 158, 158, 0.75);
 }
 
     .templatemo_slidetitle h1 {
@@ -264,14 +264,14 @@ input {
 
 .lightgrey_background {
     background-color: #f3f3f3;
-    padding: 20px 0px 20px 0px;
+    padding: 20px 0 20px 0;
     position: relative;
     width: 1600px;
 }
 
 .templatemo_lightgrey {
     background-color: #e9e9e9;
-    padding: 70px 0px;
+    padding: 70px 0;
 }
 
 .templatemo_paracenter {
@@ -281,7 +281,7 @@ input {
 .item_box {
     background: #ffffff;
     border-radius: 5px;
-    padding: 20px 0px;
+    padding: 20px 0;
     text-align: center;
 }
 
@@ -326,18 +326,17 @@ input {
 .project-post:hover .hover-box {
     visibility: visible;
     opacity: 1;
-    -webkit-transform: rotateY(0deg) scale(1);
-    -moz-transform: rotateY(0deg) scale(1);
-    -ms-transform: rotateY(0deg) scale(1);
-    -o-transform: rotateY(0deg) scale(1);
-    transform: rotateY(0deg) scale(1);
+    -webkit-transform: rotateY(0) scale(1);
+       -moz-transform: rotateY(0) scale(1);
+        -ms-transform: rotateY(0) scale(1);
+         -o-transform: rotateY(0) scale(1);
+            transform: rotateY(0) scale(1);
 }
 
 .inner-hover-box p {
     font-size: 20px;
     font-weight: bold;
     text-align: center;
-    ;
     color: #ffffff;
     padding: 33px 10px;
 }
@@ -413,18 +412,17 @@ ul.posts-list {
 
 .fluid-wrapper {
     position: relative;
-    /* padding-bottom: 56.25%;  16:9 */
     height: 0;
 }
 
-    .fluid-wrapper iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 500px;
-        border: none;
-    }
+.fluid-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 500px;
+    border: none;
+}
 
 .send_msg {
     background: #fafafa;
@@ -432,7 +430,7 @@ ul.posts-list {
 }
 
 .templatemo_bottom {
-    padding: 15px 0px;
+    padding: 15px 0;
     max-width: 1600px;
     position: relative;
     background: #005fa1;
