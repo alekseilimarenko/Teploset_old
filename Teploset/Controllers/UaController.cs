@@ -28,6 +28,14 @@ namespace Teploset.Controllers
             return View();
         }
 
-        
+        public ActionResult About_ua()
+        {
+            return View();
+        }
+
+        public ActionResult Contact_ua()
+        {
+            return View();
+        }
     }
 }

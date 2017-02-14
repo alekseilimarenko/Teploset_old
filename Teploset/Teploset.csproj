@@ -185,6 +185,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Classes\Consts.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RuController.cs" />
     <Compile Include="Controllers\UaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -272,17 +273,18 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Ua\About.cshtml" />
-    <Content Include="Views\Ua\Contact.cshtml" />
+    <Content Include="Views\Ua\About_ua.cshtml" />
+    <Content Include="Views\Ua\Contact_ua.cshtml" />
     <Content Include="Views\Ua\Index_ua.cshtml" />
-    <Content Include="Views\Shared\_PartHeader.cshtml" />
-    <Content Include="Views\Shared\_PartFooter_Ua.cshtml" />
-    <Content Include="Views\Shared\_PartHeader_Ua.cshtml" />
+    <Content Include="Views\Shared\_PartHeader_ru.cshtml" />
+    <Content Include="Views\Shared\_PartFooter_ua.cshtml" />
+    <Content Include="Views\Shared\_PartHeader_ua.cshtml" />
+    <Content Include="Views\Ru\Index_ru.cshtml" />
+    <Content Include="Views\Shared\_PartFooter_ru.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Ru\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
