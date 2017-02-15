@@ -10,7 +10,7 @@ namespace Teploset.EF.Entities
     {
         public Guid VacId { get; set; }
 
-        public Guid LangType { get; set; }
+        public Guid LangTypeId { get; set; }
 
         public DateTime DateTimeCreate { get; set; }
 
