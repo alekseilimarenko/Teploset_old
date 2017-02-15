@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-3">
                 <div class="logo">
-                    <a href="@Url.Action("Index_ru", "Ru")">
+                    <a href="@Url.Action("Index", "Home", new { id = "ru" })">
                         <img src="~/Content/images/logo_ua.png" width="211" height="70" alt="" />
                     </a>
                 </div>
@@ -11,17 +11,17 @@
             <div class="col-md-7">
                 <div id="strapline">
                     <div id="welcome_slogan">
-                        <h3>З теплом до кожної родини</h3>
+                        <h3>С теплом к каждой семье</h3>
                     </div><!--close welcome_slogan-->
                 </div><!--close strapline-->
             </div>
             <div class="col-md-2">
                 <div class="lang-info">
-                    <a href="@Url.Action("Index_ua", "Ua")"><img src="~/Content/images/icons/uk.gif" alt="" /></a>
-                    <a href="@Url.Action("Index_ru", "Ru")"><img src="~/Content/images/icons/ru.gif" alt="" /></a>
+                    <a href="@Url.Action("Index", "Home", new { id = "ua" })"><img src="~/Content/images/icons/uk.gif" alt="" /></a>
+                    <a href="@Url.Action("Index", "Home", new { id = "ru" })"><img src="~/Content/images/icons/ru.gif" alt="" /></a>
                     <br />
                     <div style="padding-top:15px;">
-                        <span style="color:#005fa1;">Аварійна</span>
+                        <span style="color:#005fa1;">Аварийная</span>
                         <span style="color:#ff0000"> 15-80</span>
                     </div>
                 </div>
@@ -34,105 +34,105 @@
                 <div class="col-md-12">
                     <div id="hornav">
                         <ul id="menu">
-                            <li><a href="@Url.Action("Index_ru", "Ru")">ГОЛОВНА</a></li>
+                            <li><a href="@Url.Action("Index", "Home", new { id = "ru" })">ГЛАВНАЯ</a></li>
                             <li>
-                                <a>ПРО КОНЦЕРН</a>
+                                <a>О КОНЦЕРНЕ</a>
                                 <ul>
-                                    <li><a>Історія підприемства</a></li>
-                                    <li><a>Керівництво</a></li>
-                                    <li><a>Сфера діяльності</a></li>
+                                    <li><a>История предприятия</a></li>
+                                    <li><a>Руководство</a></li>
+                                    <li><a>Сфера деяльности</a></li>
                                     <li class="parent">
-                                        <a>Додаткові послуги</a>
+                                        <a>Дополнительные услуги</a>
                                         <ul>
                                             <li>
                                                 <a>
-                                                    Проектні послуги
+                                                    Проектные услуги
                                                 </a>
                                             </li>
                                             <li>
                                                 <a>
-                                                    Послуги технічних лабораторій(УТПП)
+                                                    Услуги технических лабораторий(УТПП)
                                                 </a>
                                             </li>
                                             <li>
                                                 <a>
-                                                    Послуги відділу розвитку та теплової інспекції
+                                                    Услуги отдела развития и тепловой инспекции
                                                 </a>
                                             </li>
                                         </ul>
                                     </li>
                                     <li>
                                         <a>
-                                            Стратегія розвитку підприемства
+                                            Стратегия развития предприятия
                                         </a>
                                     </li>
                                     <li>
                                         <a>
-                                            Нагороди та досягнення
+                                            Награды и достижения
                                         </a>
                                     </li>
                                     <li>
                                         <a>
-                                            Вакансії
+                                            Вакансии
                                         </a>
                                     </li>
                                 </ul>
                             </li>
                             <li>
-                                <a>ТАРИФИ</a>
+                                <a>ТАРИФЫ</a>
                                 <ul>
                                     <li class="parent">
-                                        <a>Діючі тарифи</a>
+                                        <a>Действующие тарифы</a>
                                         <ul>
                                             <li>
                                                 <a>
-                                                    Тарифи для населення
+                                                    Тарифы для населения
                                                 </a>
                                             </li>
                                             <li>
                                                 <a>
-                                                    Тарифи для бюджетних організацій, інших споживачів (крім населення) та релігійних організацій
+                                                    Тарифы для бюджетных организаций, прочих потребителей (кроме населения) и религиозных организаций
                                                 </a>
                                             </li>
                                             <li>
                                                 <a>
-                                                    Тарифи для управителів багатоквартирних будинків
+                                                    Тарифы для управляющих многоквартирных домов
                                                 </a>
                                             </li>
                                         </ul>
                                     </li>
                                     <li class="parent">
-                                        <a>Архів тарифів</a>
+                                        <a>Архив тарифов</a>
                                         <ul>
                                             <li>
                                                 <a>
-                                                    Історія внесення змін у тарифи для населення
+                                                    История внесения изменений в тарифы для населения
                                                 </a>
                                             </li>
                                             <li>
                                                 <a>
-                                                    Історія внесення змін в тарифи для бюджетних та госпрозрахункових споживачів
+                                                    История внесения изменений в тарифы для бюджетных и хозрасчетных потребителей
                                                 </a>
                                             </li>
                                         </ul>
                                     </li>
                                     <li class="parent">
-                                        <a>Коментарі та роз'яснення</a>
+                                        <a>Коментарии и разъяснения</a>
                                         <ul>
-                                            <li><a>Тариф на підігрів</a></li>
-                                            <li><a>Про начислення по домівках з приборами обліку</a></li>
+                                            <li><a>Тариф на подогрев</a></li>
+                                            <li><a>О начислениях по домам с приборами учета</a></li>
                                         </ul>
                                     </li>
                                 </ul>
                             </li>
                             <li>
-                                <a>ПУБЛІЧНА ІНФОРМАЦІЯ</a>
+                                <a>ПУБЛИЧНАЯ ИНФОРМАЦИЯ</a>
                                 <ul>
-                                    <li><a>Нормативно-правова база</a></li>
-                                    <li><a>Тендери</a></li>
+                                    <li><a>Нормативно-правовая база</a></li>
+                                    <li><a>Тендеры</a></li>
                                 </ul>
                             </li>
-                            <li><a href="@Url.Action("Contact_ru", "Ru")">КОНТАКТИ</a></li>
+                            <li><a href="@Url.Action("Contact", "Home", new { id = "ru" })">КОНТАКТЫ</a></li>
                         </ul>
                     </div>
                 </div>

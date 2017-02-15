@@ -9,15 +9,15 @@
                 <ul class="list-unstyled list-inline">
                     |
                     <li>
-                        <a href="index.html" target="_blank">Головна</a>
+                        <a href="@Url.Action("Index", "Home", new {id = "ua"} )">Головна</a>
                     </li>
                     |
                     <li>
-                        <a href="ua/news.html" target="_blank">Новини</a>
+                        <a>Новини</a>
                     </li>
                     |
                     <li>
-                        <a href="ua/posts.html" target="_blank">Об'яви</a>
+                        <a>Об'яви</a>
                     </li>
                     <!-- |
                     <li>
@@ -25,7 +25,7 @@
                     </li> -->
                     |
                     <li>
-                        <a href="ua/contact_ua.html" target="_blank">Контакти</a>
+                        <a href="@Url.Action("Contact", "Home", new {id = "ua"} )">Контакти</a>
                     </li>
                 </ul>
             </div>

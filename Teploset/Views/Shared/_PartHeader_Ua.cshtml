@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-3">
                 <div class="logo">
-                    <a href="@Url.Action("Index_ua", "Ua")">
+                    <a href="@Url.Action("Index", "Home", new {id = "ua"} )">
                         <img src="~/Content/images/logo_ua.png" width="211" height="70" alt="" />
                     </a>
                 </div>
@@ -17,8 +17,8 @@
             </div>
             <div class="col-md-2">
                 <div class="lang-info">
-                    <a href="@Url.Action("Index_ua", "Ua")"><img src="~/Content/images/icons/uk.gif" alt="" /></a>
-                    <a href="@Url.Action("Index_ru", "Ru")"><img src="~/Content/images/icons/ru.gif" alt="" /></a>
+                    <a href="@Url.Action("Index", "Home", new {id = "ua"} )"><img src="~/Content/images/icons/uk.gif" alt="" /></a>
+                    <a href="@Url.Action("Index", "Home", new {id = "ru"} )"><img src="~/Content/images/icons/ru.gif" alt="" /></a>
                     <br />
                     <div style="padding-top:15px;">
                         <span style="color:#005fa1;">Аварійна</span>
@@ -34,11 +34,11 @@
                 <div class="col-md-12">
                     <div id="hornav">
                         <ul id="menu">
-                            <li><a href="@Url.Action("Index_ua", "Ua")">ГОЛОВНА</a></li>
+                            <li><a href="@Url.Action("Index", "Home", new {id = "ua"} )">ГОЛОВНА</a></li>
                             <li>
                                 <a>ПРО КОНЦЕРН</a>
                                 <ul>
-                                    <li><a href="@Url.Action("About_ua", "Ua")">Історія підприемства</a></li>
+                                    <li><a href="@Url.Action("About", "Home", new {id = "ua"} )">Історія підприемства</a></li>
                                     <li><a >Керівництво</a></li>
                                     <li><a >Сфера діяльності</a></li>
                                     <li class="parent">
@@ -132,7 +132,7 @@
                                     <li><a>Тендери</a></li>
                                 </ul>
                             </li>
-                            <li><a href="@Url.Action("Contact_ua", "Ua")">КОНТАКТИ</a></li>
+                            <li><a href="@Url.Action("Contact", "Home", new {id = "ua"} )">КОНТАКТИ</a></li>
                         </ul>
                     </div>
                 </div>
