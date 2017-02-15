@@ -18,11 +18,18 @@
 <body>
     <div class="wrapper">
      
-        @Html.Partial("_PartHeader_Ua")
-        
-        @RenderBody()
-
-        @Html.Partial("_PartFooter_Ua")
+        @if (ViewBag.Lang == "ua")
+        {
+            @Html.Partial("_PartHeader_ua")
+            @RenderBody()
+           @Html.Partial("_PartFooter_ua")
+        }
+        @if (ViewBag.Lang == "ru")
+        {
+            @Html.Partial("_PartHeader_ru")
+            @RenderBody()
+            @Html.Partial("_PartFooter_ru")
+        }
     
     </div><!--wrapper End-->
     

@@ -176,20 +176,24 @@ namespace Teploset.Interfaces
 
             mock.Setup(m => m.Vacancies).Returns(new List<Vacancy>
             {
-                new Vacancy {   VacancyName = "Машинист (кочегар) котельной",
+                new Vacancy {   VacancyName = "Машиніст (кочегар) котельні",
                                 Rank = "2",
+                                DateTimeCreate = DateTime.Parse("06/02/2017"),
                                 Comment = ""
                 },
-                new Vacancy {   VacancyName = "Инженер-конструктор",
+                new Vacancy {   VacancyName = "Інженер-конструктор",
                                 Rank = "",
-                                Comment = "профессионалы всех категорий"
+                                DateTimeCreate = DateTime.Parse("06/02/2017"),
+                                Comment = "професіонали всіх категорій"
                 },
-                new Vacancy {   VacancyName = "Инженер по проектно-сметной работе",
+                new Vacancy {   VacancyName = "Інженер з проектно-кошторисної роботи",
                                 Rank = "",
-                                Comment = "профессионалы всех категорий"
+                                DateTimeCreate = DateTime.Parse("06/02/2017"),
+                                Comment = "професіонали всіх категорій"
                 },
-                new Vacancy {   VacancyName = "Инженер-программист",
+                new Vacancy {   VacancyName = "Інженер-програміст",
                                 Rank = "",
+                                DateTimeCreate = DateTime.Parse("06/02/2017"),
                                 Comment = ""
                 }
             });

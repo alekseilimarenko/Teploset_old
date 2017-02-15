@@ -9,14 +9,14 @@ using Teploset.EF.Interfaces;
 
 namespace Teploset.Utils
 {
-    public static class UltisNews
+    public static class UtilsVacancies
     {
-        public static List<News> SelectLastNewsListForMainPage(
+        public static List<Vacancy> SelectVacanciesListForMainPage(
             ITeplosetRepository repository,
-            int countNews, 
+            int countPost,
             string langType)
         {
-            var res = repository.Newses.OrderByDefault().Take(countNews).ToList();
+            var res = repository.Vacancies.OrderByDefault().Take(countPost).ToList();
             return res;
         }
     }

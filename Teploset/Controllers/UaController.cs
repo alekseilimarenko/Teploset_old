@@ -21,9 +21,9 @@ namespace Teploset.Controllers
         // GET: Ua
         public ActionResult Index_ua()
         {
-            ViewBag.Posts = UtilsPost.SelectLastPostsListForMainPage(repository, Consts.CountPostForMainPage);
-            ViewBag.Newses = UltisNews.SelectLastNewsListForMainPage(repository, Consts.CountPostForMainPage);
-            ViewBag.Vacansies = repository.Vacancies;
+            //ViewBag.Posts = UtilsPost.SelectLastPostsListForMainPage(repository, Consts.CountPostForMainPage);
+            //ViewBag.Newses = UltisNews.SelectLastNewsListForMainPage(repository, Consts.CountPostForMainPage);
+            //ViewBag.Vacansies = repository.Vacancies;
 
             return View();
         }

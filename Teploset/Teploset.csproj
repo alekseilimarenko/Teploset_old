@@ -295,6 +295,9 @@
     <Content Include="Views\Shared\_PartFooter_ru.cshtml" />
     <Content Include="Views\Ru\Contact_ru.cshtml" />
     <Content Include="Views\Ru\About_ru.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

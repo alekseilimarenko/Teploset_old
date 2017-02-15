@@ -7,11 +7,12 @@ using Teploset.EF.Interfaces;
 
 namespace Teploset.Utils
 {
-    public class UtilsPost
+    public static class UtilsPost
     {
         public static List<Post> SelectLastPostsListForMainPage(
             ITeplosetRepository repository,
-            int countPost)
+            int countPost,
+            string langType)
         {
             var res = repository.Posts.OrderByDefault().Take(countPost).ToList();
             return res;

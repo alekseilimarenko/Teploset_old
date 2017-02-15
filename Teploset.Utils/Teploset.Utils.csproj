@@ -43,6 +43,7 @@
     <Compile Include="UltisNews.cs" />
     <Compile Include="UtilsPost.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UtilsVacancies.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Teploset.EF\Teploset.EF.csproj">

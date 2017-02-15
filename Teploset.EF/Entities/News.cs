@@ -15,7 +15,6 @@ namespace Teploset.EF.Entities
         public string NewsTitle { get; set; }
         public string NewsBody { get; set; }
         public string File1 { get; set; }
-
         public string File2 { get; set; }
     }
 }

@@ -86,6 +86,7 @@
     <Compile Include="Entities\Vacancy.cs" />
     <Compile Include="ExtNews.cs" />
     <Compile Include="ExtPost.cs" />
+    <Compile Include="ExtVacancy.cs" />
     <Compile Include="Interfaces\ITeplosetRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
