@@ -204,7 +204,7 @@
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\images\icons\ru.GIF" />
     <Content Include="Content\images\icons\uk.gif" />
-    <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\logo_ru.png" />
     <Content Include="Content\images\logo_ua.png" />
     <Content Include="Content\images\newsimg\document_icon.jpg" />
     <Content Include="Content\images\newsimg\lowercost.jpg" />
@@ -295,9 +295,12 @@
     <Content Include="Views\Shared\_PartFooter_ru.cshtml" />
     <Content Include="Views\Ru\Contact_ru.cshtml" />
     <Content Include="Views\Ru\About_ru.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\About_ua.cshtml" />
+    <Content Include="Views\Home\Index_ua.cshtml" />
+    <Content Include="Views\Home\Index_ru.cshtml" />
+    <Content Include="Views\Home\Contact_ua.cshtml" />
+    <Content Include="Views\Home\Contact_ru.cshtml" />
+    <Content Include="Views\Home\About_ru.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

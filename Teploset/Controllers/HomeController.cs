@@ -20,22 +20,44 @@ namespace Teploset.Controllers
         public ActionResult Index(string id)
         {
             ViewBag.Lang = id;
+            
 
             ViewBag.Posts = UtilsPost.SelectLastPostsListForMainPage(_repository, Consts.CountPostForMainPage, id);
             ViewBag.Newses = UltisNews.SelectLastNewsListForMainPage(_repository, Consts.CountPostForMainPage, id);
-            ViewBag.Vacansies = _repository.Vacancies;
+            ViewBag.Vacansies = UtilsVacancies.SelectVacanciesListForMainPage(_repository, Consts.CountVacanciesForMainPage, id);
 
-            return View();
+            if (id == "ua")
+            {
+                ViewBag.Title = "Головна";
+                return View("Index_ua");
+            }
+
+            ViewBag.Title = "Главная";
+            return View("Index_ru");
         }
 
-        public ActionResult About()
+        public ActionResult About(string id)
         {
-            return View();
+            if (id == "ua")
+            {
+                ViewBag.Title = "З Історії";
+                return View("About_ua");
+            }
+
+            ViewBag.Title = "Из истории";
+            return View("About_ru");
         }
 
-        public ActionResult Contact()
+        public ActionResult Contact(string id)
         {
-            return View();
+            if (id == "ua")
+            {
+                ViewBag.Title = "Котакти";
+                return View("Contact_ua");
+            }
+
+            ViewBag.Title = "Контакты";
+            return View("Contact_ru");
         }
     }
 }
