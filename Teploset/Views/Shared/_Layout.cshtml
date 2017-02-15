@@ -1,8 +1,4 @@
-﻿@{
-    var langType = @ViewBag.Lang;
-}
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//UA" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//UA" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="en" class="no-js">
 <head>
     <!-- title and meta -->
@@ -12,7 +8,7 @@
     
     <link rel="shortcut icon" href="~/favicon.ico" type="image/x-icon" />
 
-    @if (langType == "ua")
+    @if (ViewBag.Lang == "ua")
     {
         <title>Концерн &laquo;МТМ&raquo; | @ViewBag.Title</title>
     }
@@ -30,7 +26,7 @@
 <body>
     <div class="wrapper">
      
-        @if (langType == "ua")
+        @if (ViewBag.Lang == "ua")
         {
             @Html.Partial("_PartHeader_ua")
             @RenderBody()
