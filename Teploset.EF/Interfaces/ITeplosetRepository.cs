@@ -7,7 +7,7 @@ using Teploset.EF.Entities;
 
 namespace Teploset.EF.Interfaces
 {
-    public interface ITeplosetRepository : IDisposable
+    public interface ITeplosetRepository
     {
         IEnumerable<Post> Posts { get; }
 

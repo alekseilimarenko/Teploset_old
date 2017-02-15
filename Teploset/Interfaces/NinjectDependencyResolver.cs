@@ -5,6 +5,7 @@ using Teploset.EF.Interfaces;
 using Teploset.EF.Entities;
 using Moq;
 using Ninject;
+using Teploset.EF.Concrete;
 
 namespace Teploset.Interfaces
 {
@@ -30,7 +31,8 @@ namespace Teploset.Interfaces
 
         private void AddBindings()
         {
-            Mock<ITeplosetRepository> mock = new Mock<ITeplosetRepository>();
+            #region
+            /*Mock<ITeplosetRepository> mock = new Mock<ITeplosetRepository>();
             mock.Setup(m => m.Posts).Returns(new List<Post>
             {
                  new Post {  DateTimeCreate = DateTime.Parse("10/02/2017"),
@@ -198,7 +200,10 @@ namespace Teploset.Interfaces
                 }
             });
 
-            _kernel.Bind<ITeplosetRepository>().ToConstant(mock.Object);
+            _kernel.Bind<ITeplosetRepository>().ToConstant(mock.Object);*/
+#endregion
+
+            _kernel.Bind<ITeplosetRepository>().To<EfTeplosetRepository>();
         }
     }
 }
