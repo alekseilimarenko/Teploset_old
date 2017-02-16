@@ -21,14 +21,14 @@ namespace Teploset.Utils
             {
                return repository.
                         Newses.
-                        Where(i=>i.LangTypeId == Consts.ruLang).
+                        Where(i=>i.LangTypeId == Consts.RuLang).
                         Take(countNews).
                         OrderByDefault().
                         ToList();
             }
             return repository.
                         Newses.
-                        Where(i => i.LangTypeId == Consts.uaLang).
+                        Where(i => i.LangTypeId == Consts.UaLang).
                         Take(countNews).
                         OrderByDefault().
                         ToList();
