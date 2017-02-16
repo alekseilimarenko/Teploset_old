@@ -11,7 +11,7 @@ namespace Teploset.EF.Interfaces
     {
         IEnumerable<Post> Posts { get; }
 
-        IEnumerable<News> Newses { get; }  
+        IEnumerable<News> Newses { get; }
 
         IEnumerable<Vacancy> Vacancies { get; }
     }

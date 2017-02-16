@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Teploset.EF;
+using Teploset.EF.Classes;
 using Teploset.EF.Entities;
 using Teploset.EF.Interfaces;
 
@@ -16,8 +17,21 @@ namespace Teploset.Utils
             int countNews, 
             string langType)
         {
-            var res = repository.Newses.OrderByDefault().Take(countNews).ToList();
-            return res;
+            if (langType == "ru")
+            {
+               return repository.
+                        Newses.
+                        Where(i=>i.LangTypeId == Consts.ruLang).
+                        Take(countNews).
+                        OrderByDefault().
+                        ToList();
+            }
+            return repository.
+                        Newses.
+                        Where(i => i.LangTypeId == Consts.uaLang).
+                        Take(countNews).
+                        OrderByDefault().
+                        ToList();
         }
     }
 }

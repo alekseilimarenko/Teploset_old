@@ -12,7 +12,7 @@ namespace Teploset.EF.Concrete
     {
         public DbSet<Post> Posts { get; set; }
         public DbSet<News> Newses { get; set; }
-        public IEnumerable<Vacancy> Vacancies { get; set; }
+        public DbSet<Vacancy> Vacancies { get; set; }
          
     }
 }
