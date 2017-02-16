@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Teploset.EF.Concrete
 {
-    public class EFDbContext : DbContext
+    public class EfDbContext : DbContext
     {
         public DbSet<Post> Posts { get; set; }
         public DbSet<News> Newses { get; set; }

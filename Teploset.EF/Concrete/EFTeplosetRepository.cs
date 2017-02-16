@@ -10,7 +10,7 @@ namespace Teploset.EF.Concrete
 {
     public class EfTeplosetRepository : ITeplosetRepository
     {
-        EFDbContext context = new EFDbContext();
+        EfDbContext context = new EfDbContext();
 
         public IEnumerable<Post> Posts
         {
