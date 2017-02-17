@@ -23,7 +23,7 @@ namespace Teploset.Controllers
             
 
             ViewBag.Posts = UtilsPost.SelectLastPostsListForMainPage(_repository, Consts.CountPostForMainPage, id);
-            ViewBag.Newses = UltisNews.SelectLastNewsListForMainPage(_repository, Consts.CountPostForMainPage, id);
+            ViewBag.Newses = UltisNews.SelectLastNewsListForMainPage(_repository, Consts.CountNewsForMainPage, id);
             ViewBag.Vacansies = UtilsVacancies.SelectVacanciesListForMainPage(_repository, Consts.CountVacanciesForMainPage, id);
 
             if (id == "ua")
