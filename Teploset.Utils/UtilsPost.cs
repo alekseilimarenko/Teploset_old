@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using Teploset.EF;
+using Teploset.EF.Classes;
 using Teploset.EF.Entities;
 using Teploset.EF.Interfaces;
 
@@ -14,8 +16,21 @@ namespace Teploset.Utils
             int countPost,
             string langType)
         {
-            var res = repository.Posts.OrderByDefault().Take(countPost).ToList();
-            return res;
+            if (langType == "ru")
+            {
+                return repository.
+                            Posts.
+                            Where(i => i.LangTypeId == Consts.RuLang)
+                            .Take(countPost)
+                            .OrderByDefault()
+                            .ToList();
+            }
+            return repository.
+                            Posts.
+                            Where(i => i.LangTypeId == Consts.UaLang)
+                            .Take(countPost)
+                            .OrderByDefault()
+                            .ToList();
         }
     }
 }
