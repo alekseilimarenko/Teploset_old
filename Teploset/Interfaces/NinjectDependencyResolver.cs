@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
-using Teploset.EF.Entities;
-using Moq;
 using Ninject;
-using Teploset.EF.Classes;
-using Teploset.EF.Concrete;
 
 namespace Teploset.Interfaces
 {
@@ -224,7 +220,7 @@ namespace Teploset.Interfaces
             _kernel.Bind<ITeplosetRepository>().ToConstant(mock.Object);*/
 #endregion
 
-            _kernel.Bind<TeplosetRepository<>>().To<EfTeplosetRepository>();
+            //_kernel.Bind<TeplosetRepository<>>().To<>();
         }
     }
 }

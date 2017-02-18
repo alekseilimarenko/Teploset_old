@@ -7,7 +7,7 @@ namespace Teploset.Utils
     public static class UtilsVacancies
     {
         public static List<VacancyCatalog> SelectVacanciesListForMainPage(
-            TeplosetRepository<VacancyCatalog> repository,
+            TeplosetUnitOfWork repository,
             int countPost,
             string langType)
         {

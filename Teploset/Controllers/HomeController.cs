@@ -7,11 +7,11 @@ namespace Teploset.Controllers
 {
     public class HomeController : Controller
     {
-        private TeplosetRepository<> _repository;
+        private readonly TeplosetUnitOfWork _repository;
 
         protected readonly NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();
 
-        public HomeController(TeplosetRepository<> repo)
+        public HomeController(TeplosetUnitOfWork repo)
         {
             _repository = repo;
         }

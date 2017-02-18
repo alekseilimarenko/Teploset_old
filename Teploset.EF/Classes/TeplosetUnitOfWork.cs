@@ -39,11 +39,39 @@ namespace Teploset.EF.Classes
             get { return GetRepCatalog<PostCatalogRepository>(); }
         }
 
-        public NewsCatalog
+        public NewsCatalogRepository NewsCatalog
+        {
+            get { return GetRepCatalog<NewsCatalogRepository>(); }
+        }
+
+        public VacancyCatalogRepository VacancyCatalog
+        {
+            get { return GetRepCatalog<VacancyCatalogRepository>(); }
+        }
+
+        public void Save()
+        {
+            _db.SaveChanges();
+        }
+
+        private bool disposed = false;
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (!this.disposed)
+            {
+                if (disposing)
+                {
+                    _db.Dispose();
+                }
+                this.disposed = true;
+            }
+        }
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
     }
 }

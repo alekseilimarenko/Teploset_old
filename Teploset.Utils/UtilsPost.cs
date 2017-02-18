@@ -7,7 +7,7 @@ namespace Teploset.Utils
     public static class UtilsPost
     {
         public static List<PostCatalog> SelectLastPostsListForMainPage(
-            TeplosetRepository<PostCatalog> repository,
+            TeplosetUnitOfWork repository,
             int countPost,
             string langType)
         {

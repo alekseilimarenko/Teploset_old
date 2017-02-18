@@ -51,6 +51,7 @@
     </Compile>
     <Compile Include="Classes\Consts.cs" />
     <Compile Include="Classes\TeplosetUnitOfWork.cs" />
+    <Compile Include="Classes\VacancyCatalogRepository.cs" />
     <Compile Include="Entity.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

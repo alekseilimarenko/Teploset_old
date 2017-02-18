@@ -8,9 +8,9 @@ using Teploset.Utils;
 
 namespace Teploset.Controllers
 {
-    public class UaController : HomeController
+    public class UaController
     {
-       // private TeplosetRepository<> repository;
+       /* private TeplosetRepository<> repository;
 
         //public UaController(TeplosetRepository<> repo) : base(repo)
         //{
@@ -35,6 +35,6 @@ namespace Teploset.Controllers
         public ActionResult Contact_ua()
         {
             return View();
-        }
+        }*/
     }
 }
