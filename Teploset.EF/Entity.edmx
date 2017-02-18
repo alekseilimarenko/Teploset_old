@@ -1,0 +1,365 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TeplosetModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AboutCatalog">
+          <Key>
+            <PropertyRef Name="AboutId" />
+          </Key>
+          <Property Name="AboutId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="LangTypeId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DateTimeOpen" Type="datetime" Nullable="false" />
+          <Property Name="DateTimeCreate" Type="datetime" Nullable="false" />
+          <Property Name="Body" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LangTypeCatalog">
+          <Key>
+            <PropertyRef Name="LangTypeId" />
+          </Key>
+          <Property Name="LangTypeId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="LangTypeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NewsCatalog">
+          <Key>
+            <PropertyRef Name="NewsId" />
+          </Key>
+          <Property Name="NewsId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="LangTypeId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DateTimeOpen" Type="datetime" Nullable="false" />
+          <Property Name="DateTimeCreate" Type="datetime" Nullable="false" />
+          <Property Name="NewsTitle" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="NewsBody" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PostCatalog">
+          <Key>
+            <PropertyRef Name="PostId" />
+          </Key>
+          <Property Name="PostId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="LangTypeId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DateTimeOpen" Type="datetime" Nullable="false" />
+          <Property Name="DateTimeCreate" Type="datetime" Nullable="false" />
+          <Property Name="PostTitle" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="PostBody" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VacancyCatalog">
+          <Key>
+            <PropertyRef Name="VacId" />
+          </Key>
+          <Property Name="VacId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="LangTypeId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DateTimeOpen" Type="datetime" Nullable="false" />
+          <Property Name="DateTimeCreate" Type="datetime" Nullable="false" />
+          <Property Name="VacancyName" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Rank" Type="int" />
+          <Property Name="Comment" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <Association Name="FK_LangType_About">
+          <End Role="LangTypeCatalog" Type="Self.LangTypeCatalog" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AboutCatalog" Type="Self.AboutCatalog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LangTypeCatalog">
+              <PropertyRef Name="LangTypeId" />
+            </Principal>
+            <Dependent Role="AboutCatalog">
+              <PropertyRef Name="LangTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LangType_News">
+          <End Role="LangTypeCatalog" Type="Self.LangTypeCatalog" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="NewsCatalog" Type="Self.NewsCatalog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LangTypeCatalog">
+              <PropertyRef Name="LangTypeId" />
+            </Principal>
+            <Dependent Role="NewsCatalog">
+              <PropertyRef Name="LangTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LangType_Post">
+          <End Role="LangTypeCatalog" Type="Self.LangTypeCatalog" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PostCatalog" Type="Self.PostCatalog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LangTypeCatalog">
+              <PropertyRef Name="LangTypeId" />
+            </Principal>
+            <Dependent Role="PostCatalog">
+              <PropertyRef Name="LangTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LangType_Vacancy">
+          <End Role="LangTypeCatalog" Type="Self.LangTypeCatalog" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="VacancyCatalog" Type="Self.VacancyCatalog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LangTypeCatalog">
+              <PropertyRef Name="LangTypeId" />
+            </Principal>
+            <Dependent Role="VacancyCatalog">
+              <PropertyRef Name="LangTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TeplosetModelStoreContainer">
+          <EntitySet Name="AboutCatalog" EntityType="Self.AboutCatalog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LangTypeCatalog" EntityType="Self.LangTypeCatalog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NewsCatalog" EntityType="Self.NewsCatalog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PostCatalog" EntityType="Self.PostCatalog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VacancyCatalog" EntityType="Self.VacancyCatalog" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_LangType_About" Association="Self.FK_LangType_About">
+            <End Role="LangTypeCatalog" EntitySet="LangTypeCatalog" />
+            <End Role="AboutCatalog" EntitySet="AboutCatalog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LangType_News" Association="Self.FK_LangType_News">
+            <End Role="LangTypeCatalog" EntitySet="LangTypeCatalog" />
+            <End Role="NewsCatalog" EntitySet="NewsCatalog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LangType_Post" Association="Self.FK_LangType_Post">
+            <End Role="LangTypeCatalog" EntitySet="LangTypeCatalog" />
+            <End Role="PostCatalog" EntitySet="PostCatalog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LangType_Vacancy" Association="Self.FK_LangType_Vacancy">
+            <End Role="LangTypeCatalog" EntitySet="LangTypeCatalog" />
+            <End Role="VacancyCatalog" EntitySet="VacancyCatalog" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TeplosetModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true" >
+          <EntitySet Name="AboutCatalog" EntityType="TeplosetModel.AboutCatalog" />
+          <EntitySet Name="LangTypeCatalog" EntityType="TeplosetModel.LangTypeCatalog" />
+          <EntitySet Name="NewsCatalog" EntityType="TeplosetModel.NewsCatalog" />
+          <EntitySet Name="PostCatalog" EntityType="TeplosetModel.PostCatalog" />
+          <EntitySet Name="VacancyCatalog" EntityType="TeplosetModel.VacancyCatalog" />
+          <AssociationSet Name="FK_LangType_About" Association="TeplosetModel.FK_LangType_About">
+            <End Role="LangTypeCatalog" EntitySet="LangTypeCatalog" />
+            <End Role="AboutCatalog" EntitySet="AboutCatalog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LangType_News" Association="TeplosetModel.FK_LangType_News">
+            <End Role="LangTypeCatalog" EntitySet="LangTypeCatalog" />
+            <End Role="NewsCatalog" EntitySet="NewsCatalog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LangType_Post" Association="TeplosetModel.FK_LangType_Post">
+            <End Role="LangTypeCatalog" EntitySet="LangTypeCatalog" />
+            <End Role="PostCatalog" EntitySet="PostCatalog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LangType_Vacancy" Association="TeplosetModel.FK_LangType_Vacancy">
+            <End Role="LangTypeCatalog" EntitySet="LangTypeCatalog" />
+            <End Role="VacancyCatalog" EntitySet="VacancyCatalog" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="AboutCatalog">
+          <Key>
+            <PropertyRef Name="AboutId" />
+          </Key>
+          <Property Name="AboutId" Type="Guid" Nullable="false" />
+          <Property Name="LangTypeId" Type="Guid" Nullable="false" />
+          <Property Name="DateTimeOpen" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DateTimeCreate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Body" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="LangTypeCatalog" Relationship="TeplosetModel.FK_LangType_About" FromRole="AboutCatalog" ToRole="LangTypeCatalog" />
+        </EntityType>
+        <EntityType Name="LangTypeCatalog">
+          <Key>
+            <PropertyRef Name="LangTypeId" />
+          </Key>
+          <Property Name="LangTypeId" Type="Guid" Nullable="false" />
+          <Property Name="LangTypeName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AboutCatalog" Relationship="TeplosetModel.FK_LangType_About" FromRole="LangTypeCatalog" ToRole="AboutCatalog" />
+          <NavigationProperty Name="NewsCatalog" Relationship="TeplosetModel.FK_LangType_News" FromRole="LangTypeCatalog" ToRole="NewsCatalog" />
+          <NavigationProperty Name="PostCatalog" Relationship="TeplosetModel.FK_LangType_Post" FromRole="LangTypeCatalog" ToRole="PostCatalog" />
+          <NavigationProperty Name="VacancyCatalog" Relationship="TeplosetModel.FK_LangType_Vacancy" FromRole="LangTypeCatalog" ToRole="VacancyCatalog" />
+        </EntityType>
+        <EntityType Name="NewsCatalog">
+          <Key>
+            <PropertyRef Name="NewsId" />
+          </Key>
+          <Property Name="NewsId" Type="Guid" Nullable="false" />
+          <Property Name="LangTypeId" Type="Guid" Nullable="false" />
+          <Property Name="DateTimeOpen" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DateTimeCreate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="NewsTitle" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NewsBody" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="LangTypeCatalog" Relationship="TeplosetModel.FK_LangType_News" FromRole="NewsCatalog" ToRole="LangTypeCatalog" />
+        </EntityType>
+        <EntityType Name="PostCatalog">
+          <Key>
+            <PropertyRef Name="PostId" />
+          </Key>
+          <Property Name="PostId" Type="Guid" Nullable="false" />
+          <Property Name="LangTypeId" Type="Guid" Nullable="false" />
+          <Property Name="DateTimeOpen" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DateTimeCreate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="PostTitle" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PostBody" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="LangTypeCatalog" Relationship="TeplosetModel.FK_LangType_Post" FromRole="PostCatalog" ToRole="LangTypeCatalog" />
+        </EntityType>
+        <EntityType Name="VacancyCatalog">
+          <Key>
+            <PropertyRef Name="VacId" />
+          </Key>
+          <Property Name="VacId" Type="Guid" Nullable="false" />
+          <Property Name="LangTypeId" Type="Guid" Nullable="false" />
+          <Property Name="DateTimeOpen" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DateTimeCreate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="VacancyName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Rank" Type="Int32" />
+          <Property Name="Comment" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="LangTypeCatalog" Relationship="TeplosetModel.FK_LangType_Vacancy" FromRole="VacancyCatalog" ToRole="LangTypeCatalog" />
+        </EntityType>
+        <Association Name="FK_LangType_About">
+          <End Type="TeplosetModel.LangTypeCatalog" Role="LangTypeCatalog" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="TeplosetModel.AboutCatalog" Role="AboutCatalog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LangTypeCatalog">
+              <PropertyRef Name="LangTypeId" />
+            </Principal>
+            <Dependent Role="AboutCatalog">
+              <PropertyRef Name="LangTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LangType_News">
+          <End Type="TeplosetModel.LangTypeCatalog" Role="LangTypeCatalog" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="TeplosetModel.NewsCatalog" Role="NewsCatalog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LangTypeCatalog">
+              <PropertyRef Name="LangTypeId" />
+            </Principal>
+            <Dependent Role="NewsCatalog">
+              <PropertyRef Name="LangTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LangType_Post">
+          <End Type="TeplosetModel.LangTypeCatalog" Role="LangTypeCatalog" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="TeplosetModel.PostCatalog" Role="PostCatalog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LangTypeCatalog">
+              <PropertyRef Name="LangTypeId" />
+            </Principal>
+            <Dependent Role="PostCatalog">
+              <PropertyRef Name="LangTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LangType_Vacancy">
+          <End Type="TeplosetModel.LangTypeCatalog" Role="LangTypeCatalog" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="TeplosetModel.VacancyCatalog" Role="VacancyCatalog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LangTypeCatalog">
+              <PropertyRef Name="LangTypeId" />
+            </Principal>
+            <Dependent Role="VacancyCatalog">
+              <PropertyRef Name="LangTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TeplosetModelStoreContainer" CdmEntityContainer="Entities" >
+          <EntitySetMapping Name="AboutCatalog">
+            <EntityTypeMapping TypeName="TeplosetModel.AboutCatalog">
+              <MappingFragment StoreEntitySet="AboutCatalog">
+                <ScalarProperty Name="Body" ColumnName="Body" />
+                <ScalarProperty Name="DateTimeCreate" ColumnName="DateTimeCreate" />
+                <ScalarProperty Name="DateTimeOpen" ColumnName="DateTimeOpen" />
+                <ScalarProperty Name="LangTypeId" ColumnName="LangTypeId" />
+                <ScalarProperty Name="AboutId" ColumnName="AboutId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LangTypeCatalog">
+            <EntityTypeMapping TypeName="TeplosetModel.LangTypeCatalog">
+              <MappingFragment StoreEntitySet="LangTypeCatalog">
+                <ScalarProperty Name="LangTypeName" ColumnName="LangTypeName" />
+                <ScalarProperty Name="LangTypeId" ColumnName="LangTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NewsCatalog">
+            <EntityTypeMapping TypeName="TeplosetModel.NewsCatalog">
+              <MappingFragment StoreEntitySet="NewsCatalog">
+                <ScalarProperty Name="NewsBody" ColumnName="NewsBody" />
+                <ScalarProperty Name="NewsTitle" ColumnName="NewsTitle" />
+                <ScalarProperty Name="DateTimeCreate" ColumnName="DateTimeCreate" />
+                <ScalarProperty Name="DateTimeOpen" ColumnName="DateTimeOpen" />
+                <ScalarProperty Name="LangTypeId" ColumnName="LangTypeId" />
+                <ScalarProperty Name="NewsId" ColumnName="NewsId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PostCatalog">
+            <EntityTypeMapping TypeName="TeplosetModel.PostCatalog">
+              <MappingFragment StoreEntitySet="PostCatalog">
+                <ScalarProperty Name="PostBody" ColumnName="PostBody" />
+                <ScalarProperty Name="PostTitle" ColumnName="PostTitle" />
+                <ScalarProperty Name="DateTimeCreate" ColumnName="DateTimeCreate" />
+                <ScalarProperty Name="DateTimeOpen" ColumnName="DateTimeOpen" />
+                <ScalarProperty Name="LangTypeId" ColumnName="LangTypeId" />
+                <ScalarProperty Name="PostId" ColumnName="PostId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VacancyCatalog">
+            <EntityTypeMapping TypeName="TeplosetModel.VacancyCatalog">
+              <MappingFragment StoreEntitySet="VacancyCatalog">
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Rank" ColumnName="Rank" />
+                <ScalarProperty Name="VacancyName" ColumnName="VacancyName" />
+                <ScalarProperty Name="DateTimeCreate" ColumnName="DateTimeCreate" />
+                <ScalarProperty Name="DateTimeOpen" ColumnName="DateTimeOpen" />
+                <ScalarProperty Name="LangTypeId" ColumnName="LangTypeId" />
+                <ScalarProperty Name="VacId" ColumnName="VacId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

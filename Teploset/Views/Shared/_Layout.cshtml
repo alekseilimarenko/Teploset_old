@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//UA" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" class="no-js">
+<head>
+    <!-- title and meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="description" content="Сайт Концерна &laquo;Городские тепловые сети&raquo;">
+    
+    <link rel="shortcut icon" href="~/favicon.ico" type="image/x-icon" />
+
+    @if (ViewBag.Lang == "ua")
+    {
+        <title>Концерн &laquo;МТМ&raquo; | @ViewBag.Title</title>
+    }
+    else
+    {
+        <title>Концерн &laquo;ГТС&raquo; | @ViewBag.Title</title>
+    }
+
+    @Styles.Render("~/Content/css")
+
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+</head>
+<body>
+    <div class="wrapper">
+     
+        @if (ViewBag.Lang == "ua")
+        {
+            @Html.Partial("_PartHeader_ua")
+            @RenderBody()
+           @Html.Partial("_PartFooter_ua")
+        }
+        else
+        {
+            @Html.Partial("_PartHeader_ru")
+            @RenderBody()
+            @Html.Partial("_PartFooter_ru")
+        }
+    
+    </div><!--wrapper End-->
+    
+    <!-- JS -->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/plugins")
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>
