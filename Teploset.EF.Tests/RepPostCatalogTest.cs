@@ -10,7 +10,14 @@ namespace Teploset.EF.Tests
         [TestMethod]
         public void SelectPostFromDbTest()
         {
-            //var posts = 
+            using (var transaction = unit.Db.Database.BeginTransaction())
+            {
+                var posts = unit.PostCatalog.Select(new Guid(Consts.UaLang.ToString()));
+
+                Assert.IsNotNull(posts);
+
+                transaction.Rollback();
+            }
         }
     }
 }

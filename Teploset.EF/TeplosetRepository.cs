@@ -5,11 +5,11 @@ namespace Teploset.EF
 {
     public class TeplosetRepository<T> where T : class
     {
-        private readonly Entities _dbEntities;
+        private readonly Entities _db;
 
-        protected Entities DbEntities
+        protected Entities Db
         {
-            get { return _dbEntities; }
+            get { return _db; }
         }
 
         private readonly DbSet<T> _dbSet;
@@ -20,11 +20,28 @@ namespace Teploset.EF
         }
 
         private TeplosetUnitOfWork _unitOfWork;
-        public TeplosetRepository(TeplosetUnitOfWork unitOfWork)
+
+        public TeplosetUnitOfWork UnitOfWork 
         {
-            _unitOfWork = unitOfWork;
+            get { return _unitOfWork ?? (_unitOfWork = new TeplosetUnitOfWork(Db)); }
         }
 
+        public TeplosetRepository(Entities dbEntities)
+        {
+            if (dbEntities == null)
+            {
+                throw new ArgumentNullException("dbEntities");
+            }
+            _db = dbEntities;
+            _dbSet = Db.Set<T>();
+        } 
+
+        public TeplosetRepository(TeplosetUnitOfWork unitOfWork) : this(unitOfWork.Db)
+        {
+            this._unitOfWork = unitOfWork;
+        }
+
+        
         public T FindById(Guid id)
         {
             return DbSet.Find(id);

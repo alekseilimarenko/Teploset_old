@@ -19,7 +19,7 @@ namespace Teploset.EF
 
         private readonly Hashtable _h = new Hashtable();
 
-        public T GetRepCatalog<T>() where T : class
+        private T GetRepCatalog<T>() where T : class
         {
             var typeName = typeof (T).FullName;
             if (!_h.ContainsKey(typeName))
@@ -30,9 +30,9 @@ namespace Teploset.EF
             return (T) _h[typeName];
         }
 
-        public RepNewsCatalog PostCatalog
+        public RepPostCatalog PostCatalog
         {
-            get { return GetRepCatalog<RepNewsCatalog>(); }
+            get { return GetRepCatalog<RepPostCatalog>(); }
         }
 
         public RepNewsCatalog NewsCatalog
@@ -50,17 +50,17 @@ namespace Teploset.EF
             _db.SaveChanges();
         }
 
-        private bool disposed = false;
+        private bool _disposed;
 
-        public virtual void Dispose(bool disposing)
+        protected virtual void Dispose(bool disposing)
         {
-            if (!this.disposed)
+            if (!_disposed)
             {
                 if (disposing)
                 {
                     _db.Dispose();
                 }
-                this.disposed = true;
+                _disposed = true;
             }
         }
 

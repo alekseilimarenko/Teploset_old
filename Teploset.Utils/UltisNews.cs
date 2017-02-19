@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Teploset.EF;
 using Teploset.EF.Classes;
 
@@ -7,27 +8,25 @@ namespace Teploset.Utils
     public static class UltisNews
     {
         public static List<NewsCatalog> SelectLastNewsListForMainPage(
-            TeplosetUnitOfWork repository,
+            TeplosetUnitOfWork teplosetUnit,
             int countNews, 
             string langType)
         {
-            /*if (langType == "ru")
+            if (langType == "ru")
             {
-               return repository.
-                        Newses.
-                        Where(i=>i.LangTypeId == Consts.RuLang).
-                        Take(countNews).
-                        OrderByDefault().
-                        ToList();
+                return teplosetUnit
+                        .NewsCatalog
+                        .Select(Consts.RuLang)
+                        .OrderByDefault()
+                        .Take(countNews)
+                        .ToList();
             }
-            return repository.
-                        Newses.
-                        Where(i => i.LangTypeId == Consts.UaLang).
-                        Take(countNews).
-                        OrderByDefault().
-                        ToList();
-                        */
-            return null;
+            return teplosetUnit
+                        .NewsCatalog
+                        .Select(Consts.UaLang)
+                        .OrderByDefault()
+                        .Take(countNews)
+                        .ToList();
         }
     }
 }

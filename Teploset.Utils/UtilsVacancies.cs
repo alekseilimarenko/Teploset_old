@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Teploset.EF;
 using Teploset.EF.Classes;
 
@@ -7,28 +8,26 @@ namespace Teploset.Utils
     public static class UtilsVacancies
     {
         public static List<VacancyCatalog> SelectVacanciesListForMainPage(
-            TeplosetUnitOfWork repository,
+            TeplosetUnitOfWork teplosetUnit,
             int countPost,
             string langType)
         {
-            //if (langType == "ru")
-            //{
-            //    return repository
-            //            .Vacancies
-            //            .Where(i => i.LangTypeId == Consts.RuLang)
-            //            .OrderByDefault()
-            //            .Take(countPost)
-            //            .ToList();
-            //}
+            if (langType == "ru")
+            {
+                return teplosetUnit
+                        .VacancyCatalog
+                        .Select(Consts.RuLang)
+                        .OrderByDefault()
+                        .Take(countPost)
+                        .ToList();
+            }
 
-            //return repository
-            //            .Vacancies
-            //            .Where(i => i.LangTypeId == Consts.UaLang)
-            //            .OrderByDefault()
-            //            .Take(countPost)
-            //            .ToList();
-
-            return null;
+            return teplosetUnit
+                        .VacancyCatalog
+                        .Select(Consts.UaLang)
+                        .OrderByDefault()
+                        .Take(countPost)
+                        .ToList();
         }
     }
 }

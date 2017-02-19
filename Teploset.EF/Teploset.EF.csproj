@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="devuaUtilsMsSql">
+      <HintPath>D:\Software development\VSProjects\Utils\devuaUtilsMsSql\bin\Debug\devuaUtilsMsSql.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -50,6 +53,7 @@
       <DependentUpon>Entity.tt</DependentUpon>
     </Compile>
     <Compile Include="Classes\Consts.cs" />
+    <Compile Include="PartEntity.cs" />
     <Compile Include="TeplosetUnitOfWork.cs" />
     <Compile Include="RepVacancyCatalog.cs" />
     <Compile Include="Entity.Context.cs">
@@ -83,6 +87,7 @@
     </Compile>
     <Compile Include="RepPostCatalog.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UtilsConnection.cs" />
     <Compile Include="VacancyCatalog.cs">
       <DependentUpon>Entity.tt</DependentUpon>
     </Compile>
