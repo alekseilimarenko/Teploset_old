@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Data.Entity;
-using System.Data.Entity.Core.Metadata.Edm;
 
-namespace Teploset.EF.Classes
+namespace Teploset.EF
 {
     public class TeplosetRepository<T> where T : class
     {

@@ -1,14 +1,16 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Teploset.EF.Classes;
 
 namespace Teploset.EF.Tests
 {
     [TestClass]
-    public class UnitTest1
+    public class RepPostCatalogTest : BaseTest
     {
         [TestMethod]
-        public void TestMethod1()
+        public void SelectPostFromDbTest()
         {
+            //var posts = 
         }
     }
 }

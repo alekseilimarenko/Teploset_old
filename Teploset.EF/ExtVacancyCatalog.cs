@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 
 namespace Teploset.EF
 {
-    public static class ExtVacancy
+    public static class ExtVacancyCatalog
     {
         public static IQueryable<VacancyCatalog> OrderByDefault(this IQueryable<VacancyCatalog> q)
         {

@@ -1,5 +1,5 @@
 ﻿using System.Web.Mvc;
-using Teploset.EF.Classes;
+using Teploset.EF;
 using Teploset.Utils;
 using Consts = Teploset.Classes.Consts;
 

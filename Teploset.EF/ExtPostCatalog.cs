@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 
 namespace Teploset.EF
 {
-    public static class ExtPost
+    public static class ExtPostCatalog
     {
         public static IQueryable<PostCatalog> OrderByDefault(this IQueryable<PostCatalog> q)
         {

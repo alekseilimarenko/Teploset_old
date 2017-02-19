@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Teploset.EF.Classes
+namespace Teploset.EF
 {
     public class TeplosetUnitOfWork : IDisposable
     {
@@ -34,19 +30,19 @@ namespace Teploset.EF.Classes
             return (T) _h[typeName];
         }
 
-        public PostCatalogRepository PostCatalog
+        public RepNewsCatalog PostCatalog
         {
-            get { return GetRepCatalog<PostCatalogRepository>(); }
+            get { return GetRepCatalog<RepNewsCatalog>(); }
         }
 
-        public NewsCatalogRepository NewsCatalog
+        public RepNewsCatalog NewsCatalog
         {
-            get { return GetRepCatalog<NewsCatalogRepository>(); }
+            get { return GetRepCatalog<RepNewsCatalog>(); }
         }
 
-        public VacancyCatalogRepository VacancyCatalog
+        public RepVacancyCatalog VacancyCatalog
         {
-            get { return GetRepCatalog<VacancyCatalogRepository>(); }
+            get { return GetRepCatalog<RepVacancyCatalog>(); }
         }
 
         public void Save()

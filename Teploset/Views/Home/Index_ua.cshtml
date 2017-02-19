@@ -1,8 +1,8 @@
-﻿@using Teploset.EF.Entities
+﻿@using Teploset.EF
 @{
-    var postsList = ViewBag.Posts as List<Post>;
-    var newsList = ViewBag.Newses as List<News>;
-    var vacancies = ViewBag.Vacansies as List<Vacancy>;
+    var postsList = ViewBag.Posts as List<PostCatalog>;
+    var newsList = ViewBag.Newses as List<NewsCatalog>;
+    var vacancies = ViewBag.Vacansies as List<VacancyCatalog>;
 }
 
 <!--  start slider-->
