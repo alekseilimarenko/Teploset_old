@@ -6,12 +6,13 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using devuaUtilsMsSql.Objects;
+//using devuaUtilsMsSql.Objects;
 
 namespace Teploset.EF
 {
     public class UtilsConnection
     {
+        /*
         private static string ConnectionString
         {
             get
@@ -44,7 +45,7 @@ namespace Teploset.EF
             {
                 Provider = "System.Data.SqlClient",
                 ProviderConnectionString = sqlBuider.ToString(),
-                Metadata = @"res://*/Entity.csdl|res://*/Entity.ssdl|res://*/Entity.msl"
+                Metadata = @"res://Entity.csdl|res://Entity.ssdl|res://Entity.msl"
             };
 
 
@@ -60,6 +61,6 @@ namespace Teploset.EF
             };
 
             return p;
-        }
+        }*/
     }
 }
