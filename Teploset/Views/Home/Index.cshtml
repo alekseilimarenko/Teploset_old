@@ -1,9 +1,10 @@
 ﻿@using Teploset.EF
-
 @{
+    var lang = ViewBag.Lang;
     var postsList = ViewBag.Posts as List<PostCatalog>;
     var newsList = ViewBag.Newses as List<NewsCatalog>;
     var vacancies = ViewBag.Vacansies as List<VacancyCatalog>;
+    var rm = lang == "ua" ? "читати далі..." : "далee...";
 }
 
 <!--  start slider-->
@@ -12,61 +13,121 @@
         <ul class="slides">
             <li>
                 <div class="templatemo_caption">
-                    <div class="templatemo_slidetitle">первый слайд</div>
+                    <div class="templatemo_slidetitle">
+                        @{
+                            var s1 = lang == "ua" ? "перший слайд" : "первый слайд";
+                        }
+                        @s1
+                    </div>
                     <div class="clearfix"></div>
-                    <h1>пояснения к первому слайду</h1>
+                    <h1>
+                        @{
+                            var r1 = lang == "ua" ? "роз'яснення до першого слайду" : "пояснения к первому слайду";
+                        }
+                        @r1
+                    </h1>
                     <div class="clearfix"></div>
-                    <a class="btn btn-large btn-primary" href="#">читать далее...</a>
+                    <a class="btn btn-large btn-primary" href="#">@rm</a>
                 </div>
                 <img src="~/Content/images/slides/001.jpg" alt="" />
             </li>
             <li>
                 <div class="templatemo_caption">
-                    <div class="templatemo_slidetitle">второй слайд</div>
+                    <div class="templatemo_slidetitle">
+                        @{
+                            var s2 = lang == "ua" ? "другий слайд" : "второй слайд";
+                        }
+                        @s2
+                    </div>
                     <div class="clearfix"></div>
-                    <h1>пояснения ко второму слайду</h1>
+                    <h1>
+                        @{
+                            var r2 = lang == "ua" ? "роз'яснення до другого слайду" : "пояснения ко второму слайду";
+                        }
+                        @r2
+                    </h1>
                     <div class="clearfix"></div>
-                    <a class="btn btn-large btn-primary" href="#">читать далее...</a>
+                    <a class="btn btn-large btn-primary" href="#">@rm</a>
                 </div>
                 <img src="~/Content/images/slides/002.jpg" alt="" />
             </li>
             <li>
                 <div class="templatemo_caption">
-                    <div class="templatemo_slidetitle">третий слайд</div>
+                    <div class="templatemo_slidetitle">
+                        @{
+                            var s3 = lang == "ua" ? "третій слайд" : "третий слайд";
+                        }
+                        @s3
+                    </div>
                     <div class="clearfix"></div>
-                    <h1>пояснения к третьему слайду</h1>
+                    <h1>
+                        @{
+                            var r3 = lang == "ua" ? "роз'яснення до третього слайду" : "пояснения к третьему слайду";
+                        }
+                        @r3
+                    </h1>
                     <div class="clearfix"></div>
-                    <a class="btn btn-large btn-primary" href="#">читать дальее...</a>
+                    <a class="btn btn-large btn-primary" href="#">@rm</a>
                 </div>
                 <img src="~/Content/images/slides/003.jpg" alt="" />
             </li>
             <li>
                 <div class="templatemo_caption">
-                    <div class="templatemo_slidetitle">четвертый слайд</div>
+                    <div class="templatemo_slidetitle">
+                        @{
+                            var s4 = lang == "ua" ? "четвертий слайд" : "четвертый слайд";
+                        }
+                        @s4
+                    </div>
                     <div class="clearfix"></div>
-                    <h1>пояснения к четвертому слайду</h1>
+                    <h1>
+                        @{
+                            var r4 = lang == "ua" ? "роз'яснення до четвертого слайду" : "пояснения к четвертому слайду";
+                        }
+                        @r4
+                    </h1>
                     <div class="clearfix"></div>
-                    <a class="btn btn-large btn-primary" href="#">читать далее...</a>
+                    <a class="btn btn-large btn-primary" href="#">@rm</a>
                 </div>
                 <img src="~/Content/images/slides/004.jpg" alt="" />
             </li>
             <li>
                 <div class="templatemo_caption">
-                    <div class="templatemo_slidetitle">пятий слайд</div>
+                    <div class="templatemo_slidetitle">
+                        @{
+                            var s5 = lang == "ua" ? "п'ятий слайд" : "пятый слайд";
+                        }
+                        @s5
+                    </div>
                     <div class="clearfix"></div>
-                    <h1>пояснення к пятому слайду</h1>
+                    <h1>
+                        @{
+                            var r5 = lang == "ua" ? "роз'яснення до п'ятого слайду" : "пояснения к пятому слайду";
+                        }
+                        @r5
+                    </h1>
                     <div class="clearfix"></div>
-                    <a class="btn btn-large btn-primary" href="#">читать далее...</a>
+                    <a class="btn btn-large btn-primary" href="#">@rm</a>
                 </div>
                 <img src="~/Content/images/slides/005.jpg" alt="" />
             </li>
             <li>
                 <div class="templatemo_caption">
-                    <div class="templatemo_slidetitle">шестой слайд</div>
+                    <div class="templatemo_slidetitle">
+                        @{
+                            var s6 = lang == "ua" ? "шостий слайд" : "шестой слайд";
+                        }
+                        @s6
+                    </div>
                     <div class="clearfix"></div>
-                    <h1>пояснения к шестому слайду</h1>
+                    <h1>
+                        @{
+                            var r6 = lang == "ua" ? "роз'яснення до шостого слайду" : "пояснения к шестому слайду";
+                        }
+                        @r6
+                    </h1>
                     <div class="clearfix"></div>
-                    <a class="btn btn-large btn-primary" href="#">читать далее...</a>
+                    <a class="btn btn-large btn-primary" href="#">@rm</a>
                 </div>
                 <img src="~/Content/images/slides/006.jpg" alt="" />
             </li>
@@ -75,6 +136,7 @@
     <div class="clearfix"></div>
 </div>
 <!-- end slider -->
+
 <!-- top menu -->
 <section id="icons" class="bottom-border-shadow">
     <div class="container bottom-border">
@@ -87,12 +149,20 @@
                             <div class="square_coner">
                                 <span class="texts-a"><i class="fa fa-cogs"></i></span>
                             </div>
-                            <h3>Услуги</h3>
+                            <h3>
+                                @{
+                                    var posl = lang == "ua" ? "Послуги" : "Услуги";
+                                }
+                                @posl
+                            </h3>
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-3 hover-box" style="color: #000000">
                             <div class="inner-hover-box">
                                 <p>
-                                    Просмотреть<br />дополнительные<br />услуги
+                                    @{
+                                        var sposl = lang == "ua" ? "Перелік<br/>додаткових<br/>послуг" : "Список<br/>дополнительных<br/>услуг";
+                                    }
+                                    @sposl
                                 </p>
                             </div>
                         </div>
@@ -106,12 +176,20 @@
                             <div class="square_coner">
                                 <span class="texts-a"><i class="fa fa-file-text-o color-primary"></i></span>
                             </div>
-                            <h3>Личный кабинет</h3>
+                            <h3>
+                                @{
+                                    var prCab = lang == "ua" ? "Особистий кабінет" : "Личный кабинет";
+                                }
+                                @prCab
+                            </h3>
                         </div>
                         <div class="col-xs-6 col-sm-6 col-md-3 hover-box">
                             <div class="inner-hover-box">
                                 <p>
-                                    Вход в<br />личный<br />кабинет.
+                                    @{
+                                        var entry = lang == "ua" ? "Вхід до<br/>особистого<br/>кабінету" : "Вход в<br/>личный<br/>кабинет";
+                                    }
+                                    @entry
                                 </p>
                             </div>
                         </div>
@@ -125,12 +203,20 @@
                             <div class="square_coner">
                                 <span class="texts-a"><i class="fa fa-bar-chart color-primary"></i></span>
                             </div>
-                            <h3>Действующие тарифы</h3>
+                            <h3>
+                                @{
+                                    var tarif = lang == "ua" ? "Діючі тарифи" : "Действующие тарифы";
+                                }
+                                @tarif
+                            </h3>
                         </div>
                         <div class="col-xs-6 col-sm-6 col-md-3 hover-box">
                             <div class="inner-hover-box">
                                 <p>
-                                    Просмотреть<br />действующие<br />тарифы.
+                                    @{
+                                        var smtarif = lang == "ua" ? "Переглянути<br/>діючі<br/>тарифи" : "Действующие<br/>тарифы";
+                                    }
+                                    @smtarif
                                 </p>
                             </div>
                         </div>
@@ -144,12 +230,17 @@
                             <div class="square_coner">
                                 <span class="texts-a"><i class="fa fa-pencil-square-o color-primary"></i></span>
                             </div>
-                            <h3>Оформления субсидий</h3>
+                            <h3>
+                                @{
+                                    var subs = lang == "ua" ? "Оформлення субсидії" : "Оформление субсидий";
+                                }
+                                @subs
+                            </h3>
                         </div>
                         <div class="col-xs-6 col-sm-6 col-md-3 hover-box">
                             <div class="inner-hover-box">
                                 <p>
-                                    Пояснения<br />по<br />оформлению<br />субсидий
+                                    Роз'яснення<br/>щодо<br/>оформлення<br/>субсидій
                                 </p>
                             </div>
                         </div>
@@ -161,6 +252,7 @@
     </div>
 </section>
 <!-- end top menu-->
+
 <!--posts start-->
 <section id="post" class="bottom-border-shadow">
     <div class="container bottom-border">
@@ -168,7 +260,7 @@
             <div class="col-sm-4">
                 <div class="panel panel-default">
                     <div>
-                        <p class="margin-bottom-10 panel-head"><a href="#">Объявления</a></p>
+                        <p class="margin-bottom-10 panel-head"><a href="@Url.Action("Index","Post", new {id = lang})">об'яви</a></p>
                         <hr />
                     </div>
                     <div class="panel-body">
@@ -180,7 +272,7 @@
                                     <li>
                                         <div class="recent-post">
                                             <img class="pull-left" src="~/Content/images/newsimg/warning.png" alt="images" />
-                                            <a href="#" class="posts-title">Аварийные отключения</a>
+                                            <a href="@Url.Action("Details", "Post", new {id = post.PostId})" class="posts-title">Аварійне відключення</a>
                                             <br>
                                             <span class="posts-content">@post.PostTitle</span>
                                             <br>
@@ -188,7 +280,7 @@
                                         </div>
                                     </li>
                                 }
-                            }
+                            } 
                         </ul>
                     </div>
                 </div>
@@ -196,7 +288,7 @@
             <div class="col-sm-4">
                 <div class="panel panel-default">
                     <div>
-                        <p class="margin-bottom-10 panel-head"><a href="#">новости</a></p>
+                        <p class="margin-bottom-10 panel-head"><a href="@Url.Action("Index","News", new {id = lang})">новини</a></p>
                         <hr />
                     </div>
                     <div class="panel-body">
@@ -207,8 +299,8 @@
                                 {
                                     <li>
                                         <div class="recent-post">
-                                            <img class="pull-left" width="64" height="48" src="~/Content/images/newsimg/energy.jpg" alt="images" />
-                                            <a href="#" class="posts-title">@news.NewsTitle</a>
+                                            <img class="pull-left" width="64" height="48" src="~/Content/images/newsimg/energy.jpg" alt="images"/>
+                                            <a href="@Url.Action("Details", "Post", new {id = news.NewsId})" class="posts-title">@news.NewsTitle</a>
                                             <br>
                                             <span class="post-date">@news.DateTimeCreate.ToShortDateString()</span>
                                         </div>
@@ -223,7 +315,7 @@
             <div class="col-sm-4">
                 <div class="panel panel-default">
                     <div>
-                        <p class="margin-bottom-10 panel-head"><a href="#">вакансии</a></p>
+                        <p class="margin-bottom-10 panel-head"><a href="@Url.Action("Index","Vacancy", new {id = lang})">вакансії</a></p>
                         <hr />
                     </div>
                     <div class="panel-body text-left">
@@ -238,8 +330,8 @@
                                 }
                             }
                         </ul>
-                        <br />
-                        <a href="#">Детальнее &raquo;</a>
+                        <br/>
+                        <a href="@Url.Action("Details", "Vacancy", new {id = "ua"})">Детальніше &raquo;</a>
                     </div>
                 </div>
             </div>

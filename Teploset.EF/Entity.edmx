@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="TeplosetModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="TeplosetModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AboutCatalog">
           <Key>
             <PropertyRef Name="AboutId" />
@@ -13,14 +13,14 @@
           <Property Name="LangTypeId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="DateTimeOpen" Type="datetime" Nullable="false" />
           <Property Name="DateTimeCreate" Type="datetime" Nullable="false" />
-          <Property Name="Body" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Body" Type="varchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="LangTypeCatalog">
           <Key>
             <PropertyRef Name="LangTypeId" />
           </Key>
           <Property Name="LangTypeId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="LangTypeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LangTypeName" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="NewsCatalog">
           <Key>
@@ -30,8 +30,8 @@
           <Property Name="LangTypeId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="DateTimeOpen" Type="datetime" Nullable="false" />
           <Property Name="DateTimeCreate" Type="datetime" Nullable="false" />
-          <Property Name="NewsTitle" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="NewsBody" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="NewsTitle" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="NewsBody" Type="varchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="PostCatalog">
           <Key>
@@ -41,8 +41,8 @@
           <Property Name="LangTypeId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="DateTimeOpen" Type="datetime" Nullable="false" />
           <Property Name="DateTimeCreate" Type="datetime" Nullable="false" />
-          <Property Name="PostTitle" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="PostBody" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PostTitle" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="PostBody" Type="varchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="VacancyCatalog">
           <Key>
@@ -52,9 +52,9 @@
           <Property Name="LangTypeId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="DateTimeOpen" Type="datetime" Nullable="false" />
           <Property Name="DateTimeCreate" Type="datetime" Nullable="false" />
-          <Property Name="VacancyName" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="VacancyName" Type="varchar" MaxLength="200" Nullable="false" />
           <Property Name="Rank" Type="int" />
-          <Property Name="Comment" Type="nvarchar" MaxLength="250" />
+          <Property Name="Comment" Type="varchar" MaxLength="250" />
         </EntityType>
         <Association Name="FK_LangType_About">
           <End Role="LangTypeCatalog" Type="Self.LangTypeCatalog" Multiplicity="1">
@@ -112,6 +112,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="getNewGuid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="param1" Type="uniqueidentifier" Mode="In" />
+        </Function>
         <EntityContainer Name="TeplosetModelStoreContainer">
           <EntitySet Name="AboutCatalog" EntityType="Self.AboutCatalog" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LangTypeCatalog" EntityType="Self.LangTypeCatalog" Schema="dbo" store:Type="Tables" />
@@ -141,24 +144,27 @@
       <Schema Namespace="TeplosetModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true" >
           <EntitySet Name="AboutCatalog" EntityType="TeplosetModel.AboutCatalog" />
-          <EntitySet Name="LangTypeCatalog" EntityType="TeplosetModel.LangTypeCatalog" />
           <EntitySet Name="NewsCatalog" EntityType="TeplosetModel.NewsCatalog" />
           <EntitySet Name="PostCatalog" EntityType="TeplosetModel.PostCatalog" />
           <EntitySet Name="VacancyCatalog" EntityType="TeplosetModel.VacancyCatalog" />
-          <AssociationSet Name="FK_LangType_About" Association="TeplosetModel.FK_LangType_About">
-            <End Role="LangTypeCatalog" EntitySet="LangTypeCatalog" />
+          <FunctionImport Name="getNewGuid">
+          <Parameter Name="param1" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <EntitySet Name="LangTypeCatalogSet" EntityType="TeplosetModel.LangTypeCatalog" />
+          <AssociationSet Name="FK_LangType_About2" Association="TeplosetModel.FK_LangType_About2">
+            <End Role="LangTypeCatalog1" EntitySet="LangTypeCatalogSet" />
             <End Role="AboutCatalog" EntitySet="AboutCatalog" />
           </AssociationSet>
-          <AssociationSet Name="FK_LangType_News" Association="TeplosetModel.FK_LangType_News">
-            <End Role="LangTypeCatalog" EntitySet="LangTypeCatalog" />
+          <AssociationSet Name="FK_LangType_News2" Association="TeplosetModel.FK_LangType_News2">
+            <End Role="LangTypeCatalog1" EntitySet="LangTypeCatalogSet" />
             <End Role="NewsCatalog" EntitySet="NewsCatalog" />
           </AssociationSet>
-          <AssociationSet Name="FK_LangType_Post" Association="TeplosetModel.FK_LangType_Post">
-            <End Role="LangTypeCatalog" EntitySet="LangTypeCatalog" />
+          <AssociationSet Name="FK_LangType_Post2" Association="TeplosetModel.FK_LangType_Post2">
+            <End Role="LangTypeCatalog1" EntitySet="LangTypeCatalogSet" />
             <End Role="PostCatalog" EntitySet="PostCatalog" />
           </AssociationSet>
-          <AssociationSet Name="FK_LangType_Vacancy" Association="TeplosetModel.FK_LangType_Vacancy">
-            <End Role="LangTypeCatalog" EntitySet="LangTypeCatalog" />
+          <AssociationSet Name="FK_LangType_Vacancy2" Association="TeplosetModel.FK_LangType_Vacancy2">
+            <End Role="LangTypeCatalog1" EntitySet="LangTypeCatalogSet" />
             <End Role="VacancyCatalog" EntitySet="VacancyCatalog" />
           </AssociationSet>
         </EntityContainer>
@@ -170,19 +176,8 @@
           <Property Name="LangTypeId" Type="Guid" Nullable="false" />
           <Property Name="DateTimeOpen" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="DateTimeCreate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Body" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="LangTypeCatalog" Relationship="TeplosetModel.FK_LangType_About" FromRole="AboutCatalog" ToRole="LangTypeCatalog" />
-        </EntityType>
-        <EntityType Name="LangTypeCatalog">
-          <Key>
-            <PropertyRef Name="LangTypeId" />
-          </Key>
-          <Property Name="LangTypeId" Type="Guid" Nullable="false" />
-          <Property Name="LangTypeName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="AboutCatalog" Relationship="TeplosetModel.FK_LangType_About" FromRole="LangTypeCatalog" ToRole="AboutCatalog" />
-          <NavigationProperty Name="NewsCatalog" Relationship="TeplosetModel.FK_LangType_News" FromRole="LangTypeCatalog" ToRole="NewsCatalog" />
-          <NavigationProperty Name="PostCatalog" Relationship="TeplosetModel.FK_LangType_Post" FromRole="LangTypeCatalog" ToRole="PostCatalog" />
-          <NavigationProperty Name="VacancyCatalog" Relationship="TeplosetModel.FK_LangType_Vacancy" FromRole="LangTypeCatalog" ToRole="VacancyCatalog" />
+          <Property Name="Body" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="LangTypeCatalog" Relationship="TeplosetModel.FK_LangType_About2" FromRole="AboutCatalog" ToRole="LangTypeCatalog1" />
         </EntityType>
         <EntityType Name="NewsCatalog">
           <Key>
@@ -192,9 +187,9 @@
           <Property Name="LangTypeId" Type="Guid" Nullable="false" />
           <Property Name="DateTimeOpen" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="DateTimeCreate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="NewsTitle" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="NewsBody" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="LangTypeCatalog" Relationship="TeplosetModel.FK_LangType_News" FromRole="NewsCatalog" ToRole="LangTypeCatalog" />
+          <Property Name="NewsTitle" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="NewsBody" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="LangTypeCatalog" Relationship="TeplosetModel.FK_LangType_News2" FromRole="NewsCatalog" ToRole="LangTypeCatalog1" />
         </EntityType>
         <EntityType Name="PostCatalog">
           <Key>
@@ -204,9 +199,9 @@
           <Property Name="LangTypeId" Type="Guid" Nullable="false" />
           <Property Name="DateTimeOpen" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="DateTimeCreate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="PostTitle" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="PostBody" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="LangTypeCatalog" Relationship="TeplosetModel.FK_LangType_Post" FromRole="PostCatalog" ToRole="LangTypeCatalog" />
+          <Property Name="PostTitle" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PostBody" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="LangTypeCatalog" Relationship="TeplosetModel.FK_LangType_Post2" FromRole="PostCatalog" ToRole="LangTypeCatalog1" />
         </EntityType>
         <EntityType Name="VacancyCatalog">
           <Key>
@@ -216,18 +211,29 @@
           <Property Name="LangTypeId" Type="Guid" Nullable="false" />
           <Property Name="DateTimeOpen" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="DateTimeCreate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="VacancyName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="VacancyName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="Rank" Type="Int32" />
-          <Property Name="Comment" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="LangTypeCatalog" Relationship="TeplosetModel.FK_LangType_Vacancy" FromRole="VacancyCatalog" ToRole="LangTypeCatalog" />
+          <Property Name="Comment" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="LangTypeCatalog" Relationship="TeplosetModel.FK_LangType_Vacancy2" FromRole="VacancyCatalog" ToRole="LangTypeCatalog1" />
         </EntityType>
-        <Association Name="FK_LangType_About">
-          <End Type="TeplosetModel.LangTypeCatalog" Role="LangTypeCatalog" Multiplicity="1">
+        <EntityType Name="LangTypeCatalog">
+          <Key>
+            <PropertyRef Name="LangTypeId" />
+          </Key>
+          <Property Name="LangTypeId" Type="Guid" Nullable="false" />
+          <Property Name="LangTypeName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AboutCatalog" Relationship="TeplosetModel.FK_LangType_About2" FromRole="LangTypeCatalog1" ToRole="AboutCatalog" />
+          <NavigationProperty Name="NewsCatalog" Relationship="TeplosetModel.FK_LangType_News2" FromRole="LangTypeCatalog1" ToRole="NewsCatalog" />
+          <NavigationProperty Name="PostCatalog" Relationship="TeplosetModel.FK_LangType_Post2" FromRole="LangTypeCatalog1" ToRole="PostCatalog" />
+          <NavigationProperty Name="VacancyCatalog" Relationship="TeplosetModel.FK_LangType_Vacancy2" FromRole="LangTypeCatalog1" ToRole="VacancyCatalog" />
+        </EntityType>
+        <Association Name="FK_LangType_About2">
+          <End Type="TeplosetModel.LangTypeCatalog" Role="LangTypeCatalog1" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
           <End Type="TeplosetModel.AboutCatalog" Role="AboutCatalog" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="LangTypeCatalog">
+            <Principal Role="LangTypeCatalog1">
               <PropertyRef Name="LangTypeId" />
             </Principal>
             <Dependent Role="AboutCatalog">
@@ -235,13 +241,13 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_LangType_News">
-          <End Type="TeplosetModel.LangTypeCatalog" Role="LangTypeCatalog" Multiplicity="1">
+        <Association Name="FK_LangType_News2">
+          <End Type="TeplosetModel.LangTypeCatalog" Role="LangTypeCatalog1" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
           <End Type="TeplosetModel.NewsCatalog" Role="NewsCatalog" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="LangTypeCatalog">
+            <Principal Role="LangTypeCatalog1">
               <PropertyRef Name="LangTypeId" />
             </Principal>
             <Dependent Role="NewsCatalog">
@@ -249,13 +255,13 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_LangType_Post">
-          <End Type="TeplosetModel.LangTypeCatalog" Role="LangTypeCatalog" Multiplicity="1">
+        <Association Name="FK_LangType_Post2">
+          <End Type="TeplosetModel.LangTypeCatalog" Role="LangTypeCatalog1" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
           <End Type="TeplosetModel.PostCatalog" Role="PostCatalog" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="LangTypeCatalog">
+            <Principal Role="LangTypeCatalog1">
               <PropertyRef Name="LangTypeId" />
             </Principal>
             <Dependent Role="PostCatalog">
@@ -263,13 +269,13 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_LangType_Vacancy">
-          <End Type="TeplosetModel.LangTypeCatalog" Role="LangTypeCatalog" Multiplicity="1">
+        <Association Name="FK_LangType_Vacancy2">
+          <End Type="TeplosetModel.LangTypeCatalog" Role="LangTypeCatalog1" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
           <End Type="TeplosetModel.VacancyCatalog" Role="VacancyCatalog" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="LangTypeCatalog">
+            <Principal Role="LangTypeCatalog1">
               <PropertyRef Name="LangTypeId" />
             </Principal>
             <Dependent Role="VacancyCatalog">
@@ -291,14 +297,6 @@
                 <ScalarProperty Name="DateTimeOpen" ColumnName="DateTimeOpen" />
                 <ScalarProperty Name="LangTypeId" ColumnName="LangTypeId" />
                 <ScalarProperty Name="AboutId" ColumnName="AboutId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="LangTypeCatalog">
-            <EntityTypeMapping TypeName="TeplosetModel.LangTypeCatalog">
-              <MappingFragment StoreEntitySet="LangTypeCatalog">
-                <ScalarProperty Name="LangTypeName" ColumnName="LangTypeName" />
-                <ScalarProperty Name="LangTypeId" ColumnName="LangTypeId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -336,6 +334,15 @@
                 <ScalarProperty Name="DateTimeOpen" ColumnName="DateTimeOpen" />
                 <ScalarProperty Name="LangTypeId" ColumnName="LangTypeId" />
                 <ScalarProperty Name="VacId" ColumnName="VacId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="getNewGuid" FunctionName="TeplosetModel.Store.getNewGuid" />
+          <EntitySetMapping Name="LangTypeCatalogSet">
+            <EntityTypeMapping TypeName="TeplosetModel.LangTypeCatalog">
+              <MappingFragment StoreEntitySet="LangTypeCatalog">
+                <ScalarProperty Name="LangTypeName" ColumnName="LangTypeName" />
+                <ScalarProperty Name="LangTypeId" ColumnName="LangTypeId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -22,42 +22,26 @@ namespace Teploset.Controllers
             ViewBag.Lang = id;
             
 
-            ViewBag.Posts = UtilsPost.SelectLastPostsListForMainPage(_repository, Consts.CountPostForMainPage, id);
+            ViewBag.Posts = UtilsPost.SelectPostsList(_repository, Consts.CountPostForMainPage, id);
             ViewBag.Newses = UltisNews.SelectLastNewsListForMainPage(_repository, Consts.CountNewsForMainPage, id);
             ViewBag.Vacansies = UtilsVacancies.SelectVacanciesListForMainPage(_repository, Consts.CountVacanciesForMainPage, id);
 
-            if (id == "ua")
-            {
-                ViewBag.Title = "Головна";
-                return View("Index_ua");
-            }
-
-            ViewBag.Title = "Главная";
-            return View("Index_ru");
+            ViewBag.Title = id == "ua" ? "Головна" : "Главная";
+            
+            return View("Index");
         }
 
         public ActionResult About(string id)
         {
-            if (id == "ua")
-            {
-                ViewBag.Title = "З Історії";
-                return View("About_ua");
-            }
+            ViewBag.Title = id == "ua" ? "З Історії": "Из истории";
 
-            ViewBag.Title = "Из истории";
-            return View("About_ru");
+            return View("About");
         }
 
         public ActionResult Contact(string id)
         {
-            if (id == "ua")
-            {
-                ViewBag.Title = "Котакти";
-                return View("Contact_ua");
-            }
-
-            ViewBag.Title = "Контакты";
-            return View("Contact_ru");
+            ViewBag.Title = id == "ua" ? "Контакти" : "Контакты";
+            return View("Contact");
         }
     }
 }
