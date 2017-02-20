@@ -160,7 +160,7 @@
                             <div class="inner-hover-box">
                                 <p>
                                     @{
-                                        var sposl = lang == "ua" ? "Перелік<br/>додаткових<br/>послуг" : "Список<br/>дополнительных<br/>услуг";
+                                        var sposl = lang == "ua" ? "Перелік додаткових послуг" : "Список дополнительных услуг";
                                     }
                                     @sposl
                                 </p>
@@ -187,7 +187,7 @@
                             <div class="inner-hover-box">
                                 <p>
                                     @{
-                                        var entry = lang == "ua" ? "Вхід до<br/>особистого<br/>кабінету" : "Вход в<br/>личный<br/>кабинет";
+                                        var entry = lang == "ua" ? "Вхід до особистого кабінету" : "Вход в личный кабинет";
                                     }
                                     @entry
                                 </p>
@@ -214,7 +214,7 @@
                             <div class="inner-hover-box">
                                 <p>
                                     @{
-                                        var smtarif = lang == "ua" ? "Переглянути<br/>діючі<br/>тарифи" : "Действующие<br/>тарифы";
+                                        var smtarif = lang == "ua" ? "Переглянути діючі тарифи" : "Действующие тарифы";
                                     }
                                     @smtarif
                                 </p>
@@ -240,7 +240,10 @@
                         <div class="col-xs-6 col-sm-6 col-md-3 hover-box">
                             <div class="inner-hover-box">
                                 <p>
-                                    Роз'яснення<br/>щодо<br/>оформлення<br/>субсидій
+                                    @{
+                                        var roz = lang == "ua" ? "Оформлення субсидій" : "Оформление субсидий";
+                                    }
+                                    @roz
                                 </p>
                             </div>
                         </div>
@@ -260,7 +263,14 @@
             <div class="col-sm-4">
                 <div class="panel panel-default">
                     <div>
-                        <p class="margin-bottom-10 panel-head"><a href="@Url.Action("Index","Post", new {id = lang})">об'яви</a></p>
+                        <p class="margin-bottom-10 panel-head">
+                            <a href="@Url.Action("Index", "Post", new {id = lang})">
+                                @{
+                                    var pt = lang == "ua" ? "об'яви" : "объявления";
+                                }
+                                @pt
+                            </a>
+                        </p>
                         <hr />
                     </div>
                     <div class="panel-body">
@@ -272,7 +282,12 @@
                                     <li>
                                         <div class="recent-post">
                                             <img class="pull-left" src="~/Content/images/newsimg/warning.png" alt="images" />
-                                            <a href="@Url.Action("Details", "Post", new {id = post.PostId})" class="posts-title">Аварійне відключення</a>
+                                            <a href="@Url.Action("Details", "Post", new {id = post.PostId})" class="posts-title">
+                                                @{
+                                                    var tt = lang == "ua" ? "Аварійне відключення" : "Аварийное отключение";
+                                                }
+                                                @tt
+                                            </a>
                                             <br>
                                             <span class="posts-content">@post.PostTitle</span>
                                             <br>
@@ -288,7 +303,14 @@
             <div class="col-sm-4">
                 <div class="panel panel-default">
                     <div>
-                        <p class="margin-bottom-10 panel-head"><a href="@Url.Action("Index","News", new {id = lang})">новини</a></p>
+                        <p class="margin-bottom-10 panel-head">
+                            <a href="@Url.Action("Index", "News", new {id = lang})">
+                                @{
+                                    var ns = lang == "ua" ? "новини" : "новости";
+                                }
+                                @ns
+                            </a>
+                        </p>
                         <hr />
                     </div>
                     <div class="panel-body">
@@ -315,7 +337,14 @@
             <div class="col-sm-4">
                 <div class="panel panel-default">
                     <div>
-                        <p class="margin-bottom-10 panel-head"><a href="@Url.Action("Index","Vacancy", new {id = lang})">вакансії</a></p>
+                        <p class="margin-bottom-10 panel-head">
+                            <a href="@Url.Action("Index", "Vacancy", new {id = lang})">
+                                @{
+                                    var vc = lang == "ua" ? "вакансії" : "вакансии";
+                                }
+                                @vc
+                            </a>
+                        </p>
                         <hr />
                     </div>
                     <div class="panel-body text-left">

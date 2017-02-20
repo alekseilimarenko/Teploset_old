@@ -30,6 +30,12 @@ namespace Teploset.EF
             return (T) _h[typeName];
         }
 
+        public RepAboutCatalog AboutCatalog
+        {
+            get { return GetRepCatalog<RepAboutCatalog>(); }
+        }
+
+
         public RepPostCatalog PostCatalog
         {
             get { return GetRepCatalog<RepPostCatalog>(); }

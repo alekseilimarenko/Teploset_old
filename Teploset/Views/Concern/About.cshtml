@@ -1,0 +1,15 @@
+﻿@using Teploset.Models
+@{
+    var aboutCatalog = ViewBag.AboutCatalog as AboutCatalog;
+}
+
+@if (aboutCatalog != null)
+{
+    <p>aboutCatalog.DateTimeCreate</p>
+
+    @Html.Raw(@aboutCatalog.Body)
+
+}
+
+@Html.ActionLink("Назад", "Index", "Post") | 
+@Html.ActionLink("Головна", "Index", "Home")

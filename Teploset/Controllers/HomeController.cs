@@ -7,20 +7,16 @@ namespace Teploset.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly TeplosetUnitOfWork _repository;
+        public TeplosetUnitOfWork _repository;
 
-        protected readonly NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();
-
-        public HomeController(TeplosetUnitOfWork repo)
+        public HomeController (TeplosetUnitOfWork repo)
         {
             _repository = repo;
         }
-
         // GET: Home
         public ActionResult Index(string id)
         {
             ViewBag.Lang = id;
-            
 
             ViewBag.Posts = UtilsPost.SelectPostsList(_repository, Consts.CountPostForMainPage, id);
             ViewBag.Newses = UltisNews.SelectLastNewsListForMainPage(_repository, Consts.CountNewsForMainPage, id);
@@ -29,13 +25,6 @@ namespace Teploset.Controllers
             ViewBag.Title = id == "ua" ? "Головна" : "Главная";
             
             return View("Index");
-        }
-
-        public ActionResult About(string id)
-        {
-            ViewBag.Title = id == "ua" ? "З Історії": "Из истории";
-
-            return View("About");
         }
 
         public ActionResult Contact(string id)

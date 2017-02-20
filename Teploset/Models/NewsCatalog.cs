@@ -2,7 +2,7 @@
 
 namespace Teploset.Models
 {
-    public class News
+    public class NewsCatalog
     {
         public Guid NewsId { get; set; }
         public Guid LangTypeId { get; set; }

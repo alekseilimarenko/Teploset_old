@@ -2,7 +2,7 @@
 
 namespace Teploset.Models
 {
-    public class Vacancy
+    public class VacancyCatalog
     {
         public Guid VacId { get; set; }
 

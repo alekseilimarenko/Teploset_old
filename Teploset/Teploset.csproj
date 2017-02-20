@@ -200,6 +200,8 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Classes\Consts.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\ConcernController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\PostController.cs" />
@@ -208,9 +210,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\NinjectDependencyResolver.cs" />
-    <Compile Include="Models\News.cs" />
-    <Compile Include="Models\Post.cs" />
-    <Compile Include="Models\Vacancy.cs" />
+    <Compile Include="Models\AboutCatalog.cs" />
+    <Compile Include="Models\NewsCatalog.cs" />
+    <Compile Include="Models\PostCatalog.cs" />
+    <Compile Include="Models\VacancyCatalog.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -309,7 +312,7 @@
     <Content Include="Views\Shared\_PartFooter_ua.cshtml" />
     <Content Include="Views\Shared\_PartHeader_ua.cshtml" />
     <Content Include="Views\Shared\_PartFooter_ru.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Concern\About.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Post\Index.cshtml" />

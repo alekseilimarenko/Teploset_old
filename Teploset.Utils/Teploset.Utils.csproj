@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="UltisNews.cs" />
+    <Compile Include="UtilsAbout.cs" />
     <Compile Include="UtilsPost.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UtilsVacancies.cs" />

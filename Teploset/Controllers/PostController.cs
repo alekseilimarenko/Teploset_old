@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Web.Mvc;
 using Teploset.EF;
+using Teploset.Utils;
 
 namespace Teploset.Controllers
 {
@@ -18,7 +19,7 @@ namespace Teploset.Controllers
         public ActionResult Index(string id)
         {
             ViewBag.Title = "Концерн&laquo;МТМ&raquo; | Об'яви";
-            ViewBag.Posts = Utils.UtilsPost.SelectPostsList(_repository, 0, id); 
+            ViewBag.Posts = UtilsPost.SelectPostsList(_repository, 0, id); 
 
             return View();
         }

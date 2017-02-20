@@ -62,6 +62,7 @@
     </Compile>
     <Compile Include="Classes\Consts.cs" />
     <Compile Include="PartEntity.cs" />
+    <Compile Include="RepAboutCatalog.cs" />
     <Compile Include="TeplosetUnitOfWork.cs" />
     <Compile Include="RepVacancyCatalog.cs" />
     <Compile Include="Entity.Context.cs">
