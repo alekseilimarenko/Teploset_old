@@ -4,25 +4,27 @@ using System.Linq;
 using System.Web.UI.WebControls;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using Teploset.EF.Classes;
 
 namespace Teploset.EF.Tests
 {
     [TestClass]
-    public class RepPostCatalogTest
+    public class RepPostCatalogTest : BaseTest
     {
-        //private List<PostCatalog> Posts()
-        //{
-        //    Mock < TeplosetUnitOfWork > mock = new Mock<TeplosetUnitOfWork>();
+        [TestMethod]
+        public void CanSelectPost()
+        {
+            using (var transAction = teplosetUnit.Db.Database.BeginTransaction())
+            {
+                var listPosts = teplosetUnit.PostCatalog.Select(new Guid("e409af66-0169-4f26-af48-54af19bcaa53")).ToList();
 
-        //    return mock.Setup(m => m.PostCatalog).Returns(new List<PostCatalog>
-        //    {
-        //        new PostCatalog{PostId = "", PostTitle = "Сообщение 1"}
-        //    });
-        //}
+                Assert.IsNotNull(listPosts);
+
+                transAction.Rollback();
+            }
+        }
 
         [TestMethod]
-        public void SelectPostFromDbTest()
+        public void CanPaginate()
         {
            //var listPosts = _repository
            //             .PostCatalog
@@ -32,7 +34,5 @@ namespace Teploset.EF.Tests
 
            // Assert.IsNotNull(listPosts);
         }
-
-       
     }
 }

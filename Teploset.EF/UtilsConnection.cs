@@ -6,19 +6,18 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-//using devuaUtilsMsSql.Objects;
+using devuaUtilsMsSql.Objects;
 
 namespace Teploset.EF
 {
     public class UtilsConnection
     {
-        /*
         private static string ConnectionString
         {
             get
             {
                 return
-                    "Data Source=1; InegratedSecurity=true;Initial Catalog=1;";
+                    "Data Source=1;Initial Catalog=1;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework";
             }
         }
 
@@ -29,7 +28,9 @@ namespace Teploset.EF
             return res;
         }
 
-        private static EntityConnection CreateEntityConnection(string connectionString, ObjectMssqlConnectionParams connParams)
+        private static EntityConnection CreateEntityConnection(
+            string connectionString,
+            ObjectMssqlConnectionParams connParams)
         {
             var sqlBuider = new SqlConnectionStringBuilder
             {
@@ -45,9 +46,8 @@ namespace Teploset.EF
             {
                 Provider = "System.Data.SqlClient",
                 ProviderConnectionString = sqlBuider.ToString(),
-                Metadata = @"res://Entity.csdl|res://Entity.ssdl|res://Entity.msl"
+                Metadata = @"res://*/Entity.csdl|res://*/Entity.ssdl|res://*/Entity.msl"
             };
-
 
             return new EntityConnection(entityBuilder.ToString());
         }
@@ -57,10 +57,10 @@ namespace Teploset.EF
             var p = new ObjectMssqlConnectionParams()
             {
                 DataBase = "Teploset",
-                Server = "VOYAGER"
+                Server = "VIRTUOS\\MSSQL2008"
             };
 
             return p;
-        }*/
+        }
     }
 }

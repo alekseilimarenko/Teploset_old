@@ -30,8 +30,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="devuaUtils2014">
+      <HintPath>D:\Projects\ChildCamp2015\ChildCamp2015\bin\devuaUtils2014.dll</HintPath>
+    </Reference>
     <Reference Include="devuaUtilsMsSql">
-      <HintPath>D:\Software development\VSProjects\Utils\devuaUtilsMsSql\bin\Debug\devuaUtilsMsSql.dll</HintPath>
+      <HintPath>D:\Projects\ChildCamp2015\ChildCamp2015\bin\devuaUtilsMsSql.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
