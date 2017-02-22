@@ -10,5 +10,6 @@ namespace Teploset.Classes
         public static int CountVacanciesForMainPage = 4;
         public static int CountPostForMainPage = 4;
         public static int CountNewsForMainPage = 4;
+        public static int pageSize = 10;
     }
 }

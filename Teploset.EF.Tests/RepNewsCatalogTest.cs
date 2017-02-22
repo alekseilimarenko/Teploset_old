@@ -8,7 +8,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Teploset.EF.Tests
 {
     [TestClass]
-    class RepNewsCatalogTest : BaseTest
+    class RepNewsCatalogTest
     {
     }
 }

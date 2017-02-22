@@ -14,7 +14,6 @@ namespace Teploset
             bundles.Add(new StyleBundle("~/Content/css").Include(
                     "~/Content/bootstrap.css",
                     "~/Content/site.css",
-                    "~/Content/contact_style.css",
                     "~/Content/flexslider.css",
                     "~/Content/menu_style.css",
                     "~/Content/slicknav.css"));

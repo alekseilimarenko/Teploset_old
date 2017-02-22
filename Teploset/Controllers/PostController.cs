@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Linq;
 using System.Web.Mvc;
+using System.Web.UI;
 using Teploset.EF;
+using Teploset.EF.Classes;
 using Teploset.Utils;
 
 namespace Teploset.Controllers
@@ -16,20 +19,33 @@ namespace Teploset.Controllers
             _repository = repo;
         }
         // GET : Post
-        public ActionResult Index(string id)
+        public ActionResult Index(string id, int page = 1)
         {
-            ViewBag.Title = "Концерн&laquo;МТМ&raquo; | Об'яви";
-            ViewBag.Posts = UtilsPost.SelectPostsList(_repository, 0, id); 
+            ViewBag.Title = id == "ua" ? "Концерн&laquo;МТМ&raquo; | Об'яви" : "Концерн&laquo;ГТС&raquo; | Объявления";
+            ViewBag.Lang = id;
 
-            return View();
+            var langId = id == "ua" ? Consts.UaLang : Consts.RuLang;
+             
+            var listPosts = _repository
+                        .PostCatalog
+                        .Select(langId)
+                        .OrderByDefault()
+                        .Skip((page - 1) * Classes.Consts.pageSize)
+                        .Take(Classes.Consts.pageSize)
+                        .ToList(); 
+
+            return View(listPosts);
         }
 
         //POST
-        public ActionResult Details(Guid id)
+        public ActionResult Details(Guid postId, string langType)
         {
-            ViewBag.Title = "Концерн&laquo;МТМ&raquo; | Об'яви";
+            ViewBag.Title = langType == "ua" ? "Концерн&laquo;МТМ&raquo; | Об'яви" : "Концерн&laquo;ГТС&raquo; | Объявления";
+            ViewBag.Lang = langType;
 
-            return View();
+            var post = _repository.PostCatalog.GetById(postId);
+
+            return View(post);
         }
     }
 }

@@ -5,8 +5,13 @@ namespace Teploset.EF.Tests
     [TestClass]
     public class BaseTest
     {
-        protected TeplosetUnitOfWork unit;
-        //protected Entities Db;
+        protected TeplosetUnitOfWork Unit;
+        protected Entities Db;
+
+        public BaseTest(TeplosetUnitOfWork repo)
+        {
+            Unit = repo;
+        }
 
         [TestInitialize]
         public void Initialize()
@@ -14,7 +19,7 @@ namespace Teploset.EF.Tests
             const bool isLocal = true;
             //var p = UtilsConnection.GetDefaultEntitiesMssqlConnectionParams();
             //Entities Db = UtilsConnection.GetInternalEntities(p);
-            //unit = new TeplosetUnitOfWork(Db);
+            Unit = new TeplosetUnitOfWork(Db);
         }
     }
 }

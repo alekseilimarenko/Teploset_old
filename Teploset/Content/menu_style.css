@@ -19,8 +19,8 @@
 /*************************** Основные пункты **/
  
 #hornav {
-    padding: 0px;
-	margin: 0px;
+    padding: 0;
+	margin: 0;
 	text-align: center;
     z-index: 10/* для отображения подпунктов поверх остальных блоков */
 }
@@ -36,7 +36,7 @@
     color: #444; 
 	display: inline-block;
 	margin: 0 0 -6px;
-	padding: 0px;
+	padding: 0;
 	float: none;
 	font: 16px Arial, Helvetica, sans-serif;
 	text-transform: uppercase;
@@ -115,10 +115,10 @@
 #hornav ul li:hover > ul {
     opacity: 1;
     visibility: visible;
-    -webkit-transition: margin 0.3s ease 0s;
-       -moz-transition: margin 0.3s ease 0s;
-         -o-transition: margin 0.3s ease 0s;
-            transition: margin 0.3s ease 0s;
+    -webkit-transition: margin 0.3s ease 0;
+       -moz-transition: margin 0.3s ease 0;
+         -o-transition: margin 0.3s ease 0;
+            transition: margin 0.3s ease 0;
     margin: 0;
     z-index: 11;
 }
@@ -148,7 +148,7 @@
 /*************************** Выпадающие пункты второго уровня **/
  
 #hornav ul li ul li ul {
-	width:350px;
+	width:auto;
     top: 0;
     left: 100%;
     margin: 0 0 0 20px;
@@ -169,7 +169,7 @@
     content: "";
     display: inline-block;
     vertical-align: top;
-    margin: 7px 0px 0px 8px;
+    margin: 7px 0 0 8px;
     -webkit-transform: rotate(135deg);
        -moz-transform: rotate(135deg);
         -ms-transform: rotate(135deg);

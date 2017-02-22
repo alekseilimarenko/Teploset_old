@@ -1,12 +1,54 @@
-﻿
+﻿@using Teploset.EF
+@model IEnumerable<PostCatalog>
+
 @{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    var lang = ViewBag.Lang;
 }
 
-<h2>PostsListView</h2>
+<div class="container">
+    <div class="row">
+        <table class="table table-hover" style="color: #000000">
+            <thead>
 
-@Html.ActionLink("Назад", "Index", "Post") | 
-@Html.ActionLink("Головна", "Index", "Home")
-
-
+                <tr>
+                    <th class="text-center">
+                        Дата
+                    </th>
+                    <th class="text-center">
+                        Заголовок
+                    </th>
+                    <th class="text-center">
+                        Краткое содержание
+                    </th>
+                    <th>
+                        Опции
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var post in Model)
+                {
+                    <tr>
+                        <td class="text-center" style="width: 50px">
+                            @post.DateTimeOpen.ToShortDateString()<br />
+                        </td>
+                        <td class="text-center" style="width: 40px">
+                            @{
+                                var str = lang == "ua" ? "Аварійне відключення" : "Авариное отключение";
+                            }
+                            @str
+                        </td>
+                        <td class="text-left" style="width: 150px">
+                            @post.PostTitle
+                        </td>
+                        <td class="text-center" style="width: 100px">
+                            @Html.ActionLink("Читати далі", "Details", new { postId = post.PostId, lang })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+            <tfoot></tfoot>
+        </table>
+    </div>
+</div>
 
