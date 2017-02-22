@@ -8,17 +8,18 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Teploset.EF.Tests
 {
     [TestClass]
-    public class RepNewsCatalogTest : BaseTest
+    public class RepVacancyCatalogTest : BaseTest
     {
         [TestMethod]
-        public void CanSelectNewsFromDb()
+        public void CanSelectVacancyFromDb()
         {
             using (var trans = teplosetUnit.Db.Database.BeginTransaction())
             {
-                var news =
-                    teplosetUnit.NewsCatalog.Select(new Guid("e409af66-0169-4f26-af48-54af19bcaa53")).FirstOrDefault();
+                var vacancy =
+                    teplosetUnit.VacancyCatalog.Select(new Guid("e409af66-0169-4f26-af48-54af19bcaa53"))
+                        .FirstOrDefault();
 
-                Assert.AreEqual(new Guid("e409af66-0169-4f26-af48-54af19bcaa53"), news.LangTypeId);
+                Assert.AreEqual(new Guid("e409af66-0169-4f26-af48-54af19bcaa53"), vacancy.LangTypeId);
 
                 trans.Rollback();
             }

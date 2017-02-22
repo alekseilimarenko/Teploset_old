@@ -108,6 +108,7 @@
     <Compile Include="RepNewsCatalogTest.cs" />
     <Compile Include="RepPostCatalogTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RepVacancyCatalogTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

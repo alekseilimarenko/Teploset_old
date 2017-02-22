@@ -19,7 +19,7 @@ namespace Teploset.Controllers
             _repository = repo;
         }
         // GET : Post
-        public ActionResult Index(string id, int page = 1)
+        public ViewResult Index(string id, int page = 1)
         {
             ViewBag.Title = id == "ua" ? "Концерн&laquo;МТМ&raquo; | Об'яви" : "Концерн&laquo;ГТС&raquo; | Объявления";
             ViewBag.Lang = id;
