@@ -8,38 +8,24 @@
     
     <link rel="shortcut icon" href="~/favicon.ico" type="image/x-icon" />
 
-    @if (ViewBag.Lang == "ua")
-    {
-        <title>Концерн &laquo;МТМ&raquo; | @ViewBag.Title</title>
+    @{
+        var title = ViewBag.Lang == "ua" ? "МТМ" : "ГТС";
     }
-    else
-    {
-        <title>Концерн &laquo;ГТС&raquo; | @ViewBag.Title</title>
-    }
+    
+    <title>Концерн &laquo;@title&raquo; | @ViewBag.Title</title>
+    
 
     @Styles.Render("~/Content/css")
 
-    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
 </head>
 <body>
     <div class="wrapper">
-     
-        @if (ViewBag.Lang == "ua")
-        {
-            @Html.Partial("_PartHeader_ua")
-            @RenderBody()
-           @Html.Partial("_PartFooter_ua")
-        }
-        else
-        {
-            @Html.Partial("_PartHeader_ru")
-            @RenderBody()
-            @Html.Partial("_PartFooter_ru")
-        }
-    
-    </div><!--wrapper End-->
+        @Html.Partial("_PartHeader")
+        @RenderBody()
+        @Html.Partial("_PartFooter")
+        </div><!--wrapper End-->
     
     <!-- JS -->
     @Scripts.Render("~/bundles/jquery")

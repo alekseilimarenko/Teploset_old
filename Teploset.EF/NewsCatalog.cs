@@ -21,6 +21,6 @@ namespace Teploset.EF
         public string NewsTitle { get; set; }
         public string NewsBody { get; set; }
     
-        public virtual LangTypeCatalog LangTypeCatalog { get; set; }
+        public virtual LangCatalog LangCatalog { get; set; }
     }
 }

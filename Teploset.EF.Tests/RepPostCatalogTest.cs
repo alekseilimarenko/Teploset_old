@@ -1,11 +1,11 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web.UI.WebControls;
+using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Moq;
+using Teploset.Classes;
 using Teploset.Controllers;
+using Teploset.Models;
 
 namespace Teploset.EF.Tests
 {
@@ -26,26 +26,49 @@ namespace Teploset.EF.Tests
         }
 
         [TestMethod]
-        public void CanPaginate()
+        public void CanPaginate_And_Send_Pagination_View_Model()
         {
             using (var trans = teplosetUnit.Db.Database.BeginTransaction())
             {
-                var listPosts = teplosetUnit
-                    .PostCatalog
-                    .Select(new Guid("e409af66-0169-4f26-af48-54af19bcaa53"))
-                    .ToList();
-
                 PostController controller = new PostController(teplosetUnit);
 
-                IEnumerable<PostCatalog> res =
-                    (IEnumerable<PostCatalog>)controller.Index("ua", 2).Model;
+                PostsListViewModel result = (PostsListViewModel) controller.Index("ua", 2).Model;
 
-                List<PostCatalog> posts = res.ToList();
-                //Assert.IsTrue(posts.Count == 2);
+                PagingInfo pageInfo = result.PagingInfo;
+
+                List<PostCatalog> posts = result.Posts.ToList();
+
+                Assert.AreEqual(pageInfo.CurrentPage, 2);
+                Assert.AreEqual(pageInfo.ItemsPerPage, 3);
+                Assert.AreEqual(pageInfo.TotalItems, 5);
+                Assert.AreEqual(pageInfo.TotalPages, 2);
+
+                Assert.IsTrue(posts.Count == 2);
                 Assert.AreEqual(posts[0].LangTypeId, new Guid("e409af66-0169-4f26-af48-54af19bcaa53"));
 
                 trans.Rollback();
             }
+        }
+
+        [TestMethod]
+        public void Can_Genarate_Page_Links()
+        {
+            HtmlHelper myHelper = null;
+
+            PagingInfo pagingInfo = new PagingInfo
+            {
+                CurrentPage = 2,
+                TotalItems = 28,
+                ItemsPerPage = 10
+            };
+
+            Func<int, string> pageUrlDelegate = i => "Page" + i;
+
+            MvcHtmlString result = myHelper.PageLinks(pagingInfo, pageUrlDelegate);
+
+            Assert.AreEqual(@"<a class=""btn btn-default"" href=""Page1"">1</a>"
+                + @"<a class=""btn btn-default btn-primary selected"" href=""Page2"">2</a>"
+                + @"<a class=""btn btn-default"" href=""Page3"">3</a>", result.ToString());
         }
     }
 }

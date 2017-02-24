@@ -1,7 +1,42 @@
-﻿
+﻿@using Teploset.EF
+@model PostCatalog
+
 @{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    var lang = ViewBag.Lang;
 }
 
-<h2>Details</h2>
-
+<div class="container">
+    <div class="row">
+        <h1 style="text-align: center">
+            @{var pos = lang == "ua" ? "Об'яви" : "Объявления";}
+            @pos
+        </h1>
+        <p>
+            @Model.DateTimeOpen.ToShortDateString()
+        </p>
+        <h3 style="text-align: left; color: red">
+            @{
+                var tt = lang == "ua" ? "Аварійне відключення" : "Аварийное отключение";
+            }
+            @tt
+        </h3>
+        <h1 style="text-align: center">
+            @Model.PostTitle
+        </h1>
+        <p>
+            @Html.Raw(Model.PostBody)
+        </p>
+        <div style="margin-top: 100px;">
+            <p>
+                @{
+                    var link1 = lang == "ua" ? "Повернутися до переліку" : "Возврат к списку";
+                    var link2 = lang == "ua" ? "Головна" : "Главная";
+                }
+                @Html.ActionLink(link1, "Index", "Post", new { id = lang }, new { @class = "btn btn-default" })
+                |
+                @Html.ActionLink(link2, "Index", "Home", new { id = lang }, new { @class = "btn btn-default" })
+            </p>    
+        </div>
+        
+    </div>
+</div>

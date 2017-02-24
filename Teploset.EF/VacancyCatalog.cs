@@ -22,6 +22,6 @@ namespace Teploset.EF
         public Nullable<int> Rank { get; set; }
         public string Comment { get; set; }
     
-        public virtual LangTypeCatalog LangTypeCatalog { get; set; }
+        public virtual LangCatalog LangCatalog { get; set; }
     }
 }

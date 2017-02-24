@@ -64,6 +64,9 @@
       <DependentUpon>Entity.tt</DependentUpon>
     </Compile>
     <Compile Include="Classes\Consts.cs" />
+    <Compile Include="LangCatalog.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
     <Compile Include="PartEntity.cs" />
     <Compile Include="RepAboutCatalog.cs" />
     <Compile Include="TeplosetUnitOfWork.cs" />
@@ -87,9 +90,6 @@
     <Compile Include="ExtPostCatalog.cs" />
     <Compile Include="ExtVacancyCatalog.cs" />
     <Compile Include="TeplosetRepository.cs" />
-    <Compile Include="LangTypeCatalog.cs">
-      <DependentUpon>Entity.tt</DependentUpon>
-    </Compile>
     <Compile Include="NewsCatalog.cs">
       <DependentUpon>Entity.tt</DependentUpon>
     </Compile>

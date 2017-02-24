@@ -1,0 +1,414 @@
+﻿@{
+    var lang = ViewBag.Lang;
+}
+<header>
+    <div id="top_header">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="logo">
+                    <a href="@Url.Action("Index", "Home", new {id = lang} )">
+                        @if (lang == "ua")
+                        {
+                            <img src="~/Content/images/logo_ua.png" width="211" height="70" alt="" />
+                        }
+                        else
+                        {
+                            <img src="~/Content/images/logo_ru.png" width="211" height="70" alt="" />
+                        }
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div id="strapline">
+                    <div id="welcome_slogan">
+                        <h3>
+                            @{
+                                var slogan = lang == "ua" ? "З теплом до кожної родини" : "С теплом к каждой семье";
+                            }
+                            @slogan
+                        </h3>
+                    </div><!--close welcome_slogan-->
+                </div><!--close strapline-->
+            </div>
+            <div class="col-md-2">
+                <div class="lang-info">
+                    <a href="@Url.Action("Index", "Home", new {id = "ua"})"><img src="~/Content/images/icons/uk.gif" alt="" /></a>
+                    <a href="@Url.Action("Index", "Home", new {id = "ru"})"><img src="~/Content/images/icons/ru.gif" alt="" /></a>
+                    <br />
+                    <div style="padding-top:15px;">
+                        <span style="color: #005fa1;">
+                            @{
+                                var av = lang == "ua" ? "Аварійна" : "Аварийная";
+                            }
+                            @av
+                        </span>
+                        <span style="color:#ff0000">15-80</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="main_header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="hornav">
+                        <ul id="menu">
+                            <li>
+                                <a href="@Url.Action("Index", "Home", new {id = lang})">
+                                    @{
+                                        var m1 = lang == "ua" ? "ГОЛОВНА" : "ГЛАВНАЯ";
+                                    }
+                                    @m1
+                                </a>
+                            </li>
+                            <li>
+                                <a>
+                                    @{
+                                        var conc = lang == "ua" ? "ПРО КОНЦЕРН" : "О КОНЦЕРНЕ";
+                                    }
+                                    @conc
+                                </a>
+                                <ul>
+                                    <li>
+                                        <a href="@Url.Action("About", "Concern", new {id = lang})">
+                                            @{
+                                                var hist = lang == "ua" ? "Історія підприемства" : "История предприятия";
+                                            }
+                                            @hist
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a >
+                                            @{
+                                                var leader = lang == "ua" ? "Керівництво" : "Руководство";
+                                            }
+                                            @leader
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a >
+                                            @{
+                                                var sfera = lang == "ua" ? "Сфера діяльності" : "Сфера деяльности";
+                                            }
+                                            @sfera
+                                        </a>
+                                    </li>
+                                    <li class="parent">
+                                        <a>
+                                            @{
+                                                var addition = lang == "ua" ? "Додаткові послуги" : "Дополнительные услуги";
+                                            }
+                                            @addition
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a>
+                                                    @{
+                                                        var proekt = lang == "ua" ? "Проектні послуги" : "Проектные услуги";
+                                                    }
+                                                    @proekt
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a>
+                                                    @{
+                                                        var utpp = lang == "ua" ? "Послуги технічних лабораторій(УТПП)" : "Услуги технических лабораторий(УТПП)";
+                                                    }
+                                                    @utpp
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a>
+                                                    @{
+                                                        var posl = lang == "ua" ? "Послуги відділу розвитку та теплової інспекції" : "Услуги отдела развития и тепловой инспекции";
+                                                    }
+                                                    @posl
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a>
+                                            @{
+                                                var strasteg = lang == "ua" ? "Стратегія розвитку підприемства" : "Стратегия развития предприятия";
+                                            }
+                                            @strasteg
+                                        </a>
+                                    </li>
+                                    <li class="parent">
+                                        <a>
+                                            @{
+                                                var fo = lang == "ua" ? "Фінансова звітність" : "Финансовые отчеты";
+                                            }
+                                            @fo
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a>
+                                                    @{
+                                                        var fo1 = lang == "ua" ? "Фінансовий звіт за 2014 рік" : "Финансовый отчет за 2014 год";
+                                                    }
+                                                    @fo1
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a>
+                                                    @{
+                                                        var fo2 = lang == "ua" ? "Фінансовий звіт за 2015 рік" : "Финансовый отчет за 2015 год";
+                                                    }
+                                                    @fo2
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a>
+                                                    @{
+                                                        var fo3 = lang == "ua" ? "Фінансовий звіт за 2016 рік" : "Финансовый отчет за 2016 год";
+                                                    }
+                                                    @fo3
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="parent">
+                                        <a>
+                                            @{
+                                                var pz = lang == "ua" ? "Плани закупівель" : "Планы закупок";
+                                            }
+                                            @pz
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a>
+                                                    @{
+                                                        var pz1 = lang == "ua" ? "План закупівель на 2015 рік" : "План закупок на 2015 год";
+                                                    }
+                                                    @pz1
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a>
+                                                    @{
+                                                        var pz2 = lang == "ua" ? "Плани закупівель до 31.03.2016" : "План закупок до 31.03.2016";
+                                                    }
+                                                    @pz2
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a>
+                                                    @{
+                                                        var pz3 = lang == "ua" ? "Плани закупівель з 01.04.2016" : "План закупок с 01.04.2016";
+                                                    }
+                                                    @pz3
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a>
+                                                    @{
+                                                        var pz4 = lang == "ua" ? "План закупівель на 2017 рік" : "План закупок на 2017 год";
+                                                    }
+                                                    @pz4
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a>
+                                                    @{
+                                                        var zg = lang == "ua" ? "Оголошення про закупівлю природного газу" : "Объявление о закупке природного газа";
+                                                    }
+                                                    @zg
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="parent">
+                                        <a>
+                                            @{
+                                                var inv = lang == "ua" ? "Інвестиційні програми" : "Инвестиционные программы";
+                                            }
+                                            @inv
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a>
+                                                    @{
+                                                        var inv1 = lang == "ua" ? "Інвестиційна програма на 2014 рік" : "Инвестиционная программа на 2014 год";
+                                                    }
+                                                    @inv1
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a>
+                                                    @{
+                                                        var inv2 = lang == "ua" ? "Інвестиційна програма на 2015 рік" : "Инвестиционная программа на 2015 год";
+                                                    }
+                                                    @inv2
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a>
+                                                    @{
+                                                        var inv3 = lang == "ua" ? "Інвестиційна програма на 2016 рік" : "Инвестиционная программа на 2016 год";
+                                                    }
+                                                    @inv3
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a>
+                                            @{
+                                                var nid = lang == "ua" ? "Нагороди та досягнення" : "Награды и достижения";
+                                            }
+                                            @nid
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("VacancyList", "Home", new { id = lang })">
+                                            @{
+                                                var vac = lang == "ua" ? "Вакансії" : "Вакансии";
+                                            }
+                                            @vac
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a>
+                                    @{
+                                        var tar = lang == "ua" ? "ТАРИФИ" : "ТАРИФЫ";
+                                    }
+                                    @tar
+                                </a>
+                                <ul>
+                                    <li class="parent">
+                                        <a>
+                                            @{
+                                                var tar1 = lang == "ua" ? "Діючі тарифи" : "Действующие тарифы";
+                                            }
+                                            @tar1
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a>
+                                                    @{
+                                                        var tar2 = lang == "ua" ? "Тарифи для населення" : "Тарифы для населения";
+                                                    }
+                                                    @tar2
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a>
+                                                    @{
+                                                        var tar3 = lang == "ua" ? "Тарифи для бюджетних організацій, інших споживачів (крім населення) та релігійних організацій" 
+                                                            : "Тарифы для бюджетных организаций, прочих потребителей (кроме населения) и религиозных организаций";
+                                                    }
+                                                    @tar3
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a>
+                                                    @{
+                                                        var tar4 = lang == "ua" ? "Тарифи для управителів багатоквартирних будинків" : "Тарифы для управляющих многоквартирных домов";
+                                                    }
+                                                    @tar4
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="parent">
+                                        <a>
+                                            @{
+                                                var tar5 = lang == "ua" ? "Архів тарифів" : "Архив тарифов";
+                                            }
+                                            @tar5
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a>
+                                                    @{
+                                                        var tar6 = lang == "ua" ? "Історія внесення змін у тарифи для населення" : "История внесения изменений в тарифы для населения";
+                                                    }
+                                                    @tar6
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a>
+                                                    @{
+                                                        var tar7 = lang == "ua" ? "Історія внесення змін в тарифи для бюджетних та госпрозрахункових споживачів" 
+                                                            : "История внесения изменений в тарифы для бюджетных и хозрасчетных потребителей";
+                                                    }
+                                                    @tar7
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="parent">
+                                        <a>
+                                            @{
+                                                var kir = lang == "ua" ? "Коментарі та роз'яснення" : "Коментарии и разъяснения";
+                                            }
+                                            @kir
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a>
+                                                    @{
+                                                        var tnp = lang == "ua" ? "Тариф на підігрів" : "Тариф на подогрев";
+                                                    }
+                                                    @tnp
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a>
+                                                    @{
+                                                        var nach = lang == "ua" ? "Про начислення по домівках з приборами обліку" : "О начислениях по домам с приборами учета";
+                                                    }
+                                                    @nach
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a>
+                                    @{
+                                        var pinf = lang == "ua" ? "ПУБЛІЧНА ІНФОРМАЦІЯ" : "ПУБЛИЧНАЯ ИНФОРМАЦИЯ";
+                                    }
+                                    @pinf
+                                </a>
+                                <ul>
+                                    <li>
+                                        <a>
+                                            @{
+                                                var npb = lang == "ua" ? "Нормативно-правова база" : "Нормативно-правовая база";
+                                            }
+                                            @npb
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a>
+                                            @{
+                                                var tender = lang == "ua" ? "Тендери" : "Тендеры";
+                                            }
+                                            @tender
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        <li>
+                            <a href="@Url.Action("Contact", "Home", new {id = lang})">
+                                @{
+                                    var cont = lang == "ua" ? "КОНТАКТИ" : "КОНТАКТЫ";
+                                }
+                                @cont
+                            </a>
+                        </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</header>

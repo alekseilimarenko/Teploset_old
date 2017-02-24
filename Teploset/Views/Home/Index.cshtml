@@ -282,7 +282,7 @@
                                     <li>
                                         <div class="recent-post">
                                             <img class="pull-left" src="~/Content/images/newsimg/warning.png" alt="images" />
-                                            <a href="@Url.Action("Details", "Post", new {id = post.PostId})" class="posts-title">
+                                            <a href="@Url.Action("Details", "Post", new {postId = post.PostId, langType = lang})" class="posts-title">
                                                 @{
                                                     var tt = lang == "ua" ? "Аварійне відключення" : "Аварийное отключение";
                                                 }
@@ -322,7 +322,7 @@
                                     <li>
                                         <div class="recent-post">
                                             <img class="pull-left" width="64" height="48" src="~/Content/images/newsimg/energy.jpg" alt="images"/>
-                                            <a href="@Url.Action("Details", "Post", new {id = news.NewsId})" class="posts-title">@news.NewsTitle</a>
+                                            <a href="@Url.Action("Details", "News", new {id = news.NewsId, lang})" class="posts-title">@news.NewsTitle</a>
                                             <br>
                                             <span class="post-date">@news.DateTimeCreate.ToShortDateString()</span>
                                         </div>
@@ -338,7 +338,7 @@
                 <div class="panel panel-default">
                     <div>
                         <p class="margin-bottom-10 panel-head">
-                            <a href="@Url.Action("Index", "Vacancy", new {id = lang})">
+                            <a href="@Url.Action("VacancyList", "Home", new {id = lang})">
                                 @{
                                     var vc = lang == "ua" ? "вакансії" : "вакансии";
                                 }
@@ -360,7 +360,10 @@
                             }
                         </ul>
                         <br/>
-                        <a href="@Url.Action("Details", "Vacancy", new {id = "ua"})">Детальніше &raquo;</a>
+                        @{
+                            var more = lang == "ua" ? "Детальніше" : "Подробнее";
+                        }
+                        <a href="@Url.Action("VacancyList", "Home", new {id = lang})">@more &raquo;</a>
                     </div>
                 </div>
             </div>

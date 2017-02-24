@@ -31,7 +31,7 @@ namespace Teploset.EF
         public virtual DbSet<NewsCatalog> NewsCatalog { get; set; }
         public virtual DbSet<PostCatalog> PostCatalog { get; set; }
         public virtual DbSet<VacancyCatalog> VacancyCatalog { get; set; }
-        public virtual DbSet<LangTypeCatalog> LangTypeCatalogSet { get; set; }
+        public virtual DbSet<LangCatalog> LangCatalog { get; set; }
     
         public virtual int getNewGuid(Nullable<System.Guid> param1)
         {

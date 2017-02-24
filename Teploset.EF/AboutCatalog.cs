@@ -20,6 +20,6 @@ namespace Teploset.EF
         public System.DateTime DateTimeCreate { get; set; }
         public string Body { get; set; }
     
-        public virtual LangTypeCatalog LangTypeCatalog { get; set; }
+        public virtual LangCatalog LangCatalog { get; set; }
     }
 }

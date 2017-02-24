@@ -12,10 +12,10 @@ namespace Teploset.EF
     using System;
     using System.Collections.Generic;
     
-    public partial class LangTypeCatalog
+    public partial class LangCatalog
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public LangTypeCatalog()
+        public LangCatalog()
         {
             this.AboutCatalog = new HashSet<AboutCatalog>();
             this.NewsCatalog = new HashSet<NewsCatalog>();

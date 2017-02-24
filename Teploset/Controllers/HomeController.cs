@@ -2,6 +2,7 @@
 using Teploset.EF;
 using Teploset.Utils;
 using Consts = Teploset.Classes.Consts;
+using Teploset.EF.Classes;
 
 namespace Teploset.Controllers
 {
@@ -27,7 +28,22 @@ namespace Teploset.Controllers
             return View("Index");
         }
 
-        public ActionResult Contact(string id)
+        public ViewResult VacancyList(string id)
+        {
+            ViewBag.Title = id == "ua" ? "Вакансії" : "Вакансии";
+            ViewBag.Lang = id;
+
+            var langId = id == "ua" ? EF.Classes.Consts.UaLang : EF.Classes.Consts.RuLang;
+
+            var vacancyList = _repository
+                .VacancyCatalog
+                .Select(langId)
+                .OrderByDefault();
+
+            return View("VacancyIndex");
+    }
+
+    public ActionResult Contact(string id)
         {
             ViewBag.Title = id == "ua" ? "Контакти" : "Контакты";
             return View("Contact");

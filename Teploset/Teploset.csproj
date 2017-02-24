@@ -200,20 +200,19 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Classes\Consts.cs" />
+    <Compile Include="Classes\Helpers.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ConcernController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\PostController.cs" />
-    <Compile Include="Controllers\VacancyController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\NinjectDependencyResolver.cs" />
-    <Compile Include="Models\AboutCatalog.cs" />
-    <Compile Include="Models\NewsCatalog.cs" />
-    <Compile Include="Models\PostCatalog.cs" />
-    <Compile Include="Models\VacancyCatalog.cs" />
+    <Compile Include="Models\NewsListViewModel.cs" />
+    <Compile Include="Models\PagingInfo.cs" />
+    <Compile Include="Models\PostsListViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -306,10 +305,8 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Shared\_PartHeader_ru.cshtml" />
-    <Content Include="Views\Shared\_PartFooter_ua.cshtml" />
-    <Content Include="Views\Shared\_PartHeader_ua.cshtml" />
-    <Content Include="Views\Shared\_PartFooter_ru.cshtml" />
+    <Content Include="Views\Shared\_PartFooter.cshtml" />
+    <Content Include="Views\Shared\_PartHeader.cshtml" />
     <Content Include="Views\Concern\About.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
@@ -317,8 +314,7 @@
     <Content Include="Views\News\Index.cshtml" />
     <Content Include="Views\Post\Details.cshtml" />
     <Content Include="Views\News\Details.cshtml" />
-    <Content Include="Views\Vacancy\Index.cshtml" />
-    <Content Include="Views\Vacancy\Details.cshtml" />
+    <Content Include="Views\Home\VacancyIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
