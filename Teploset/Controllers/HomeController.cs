@@ -2,7 +2,7 @@
 using Teploset.EF;
 using Teploset.Utils;
 using Consts = Teploset.Classes.Consts;
-using Teploset.EF.Classes;
+using Teploset.Models;
 
 namespace Teploset.Controllers
 {
@@ -35,12 +35,15 @@ namespace Teploset.Controllers
 
             var langId = id == "ua" ? EF.Classes.Consts.UaLang : EF.Classes.Consts.RuLang;
 
-            var vacancyList = _repository
+            VacancyListModel model = new VacancyListModel()
+            {
+                Vacancies = _repository
                 .VacancyCatalog
                 .Select(langId)
-                .OrderByDefault();
+                .OrderByDefault()
+            };
 
-            return View("VacancyIndex");
+            return View(model);
     }
 
     public ActionResult Contact(string id)

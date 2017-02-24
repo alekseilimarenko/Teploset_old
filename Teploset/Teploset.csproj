@@ -213,6 +213,7 @@
     <Compile Include="Models\NewsListViewModel.cs" />
     <Compile Include="Models\PagingInfo.cs" />
     <Compile Include="Models\PostsListViewModel.cs" />
+    <Compile Include="Models\VacancyListModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -314,7 +315,7 @@
     <Content Include="Views\News\Index.cshtml" />
     <Content Include="Views\Post\Details.cshtml" />
     <Content Include="Views\News\Details.cshtml" />
-    <Content Include="Views\Home\VacancyIndex.cshtml" />
+    <Content Include="Views\Home\VacancyList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

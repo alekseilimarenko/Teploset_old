@@ -3,7 +3,16 @@
 
 @{
     var lang = ViewBag.Lang;
+    var ttl = lang == "ua" ? "Об'яви" : "Объявления";
+    var sod = lang == "ua" ? "Короткий зміст" : "Краткое содержание";
+    var opt = lang == "ua" ? "Опції" : "Опции";
+    var str = lang == "ua" ? "Аварійне відключення" : "Авариное отключение";
+    var rm = lang == "ua" ? "читати далі..." : "далee...";
 }
+
+<h1 style="text-align: center">
+    @ttl
+</h1>
 
 <div class="container">
     <div class="row">
@@ -18,15 +27,9 @@
                     Заголовок
                 </th>
                 <th class="text-center">
-                    @{
-                        var sod = lang == "ua" ? "Короткий зміст" : "Краткое содержание";
-                    }
                     @sod
                 </th>
                 <th>
-                    @{
-                        var opt = lang == "ua" ? "Опції" : "Опции";
-                    }
                     @opt
                 </th>
             </tr>
@@ -39,18 +42,12 @@
                         @post.DateTimeOpen.ToShortDateString()<br/>
                     </td>
                     <td class="text-center" style="width: 40px">
-                        @{
-                            var str = lang == "ua" ? "Аварійне відключення" : "Авариное отключение";
-                        }
                         @str
                     </td>
                     <td class="text-left" style="width: 200px">
                         @post.PostTitle
                     </td>
                     <td class="text-center" style="width: 50px">
-                        @{
-                            var rm = lang == "ua" ? "читати далі..." : "далee...";
-                        }
                         @Html.ActionLink(@rm, "Details", new {postId = post.PostId, lang})
                     </td>
                 </tr>
@@ -59,7 +56,7 @@
             <tfoot></tfoot>
         </table>
 
-        <div style="text-align: center">
+        <div class="btn-group pull-right">
             @Html.PageLinks(Model.PagingInfo, i => Url.Action("Index", new { page = i }))
         </div>
 

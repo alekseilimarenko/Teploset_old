@@ -1,0 +1,68 @@
+﻿@using Teploset.Models;
+@model Teploset.Models.VacancyListModel
+@{
+    var lang = ViewBag.Lang;
+    var ttl = lang == "ua" ? "Вакансії" : "Вакансии";
+    var zag = lang == "ua" ? "Концерну \"Міські теплові мережі\" \n на постійну роботу потрібні:" 
+        : "Концерну \"Городские тепловые сети\" на постоянную работу требуются:";
+    var vacName = lang == "ua" ? "Найменування посади, професії" : "Наименование должности, профессии";
+    var rozryad = lang == "ua" ? "Розряд" : "Разряд";
+    var prim = lang == "ua" ? "Примітка" : "Примечание";
+    var count = 1;
+    var rez = lang == "ua" ? "Прийом резюме" : "Прием резюме";
+}
+
+<h1 style="text-align: center">
+   @zag
+</h1>
+
+<div class="container">
+    <div class="row">
+        <table class="table" style="color: #000000; border:">
+            <thead>
+            <tr>
+                <th class="text-center" style="width: 5px">
+                    №п/п
+                </th>
+                <th class="text-center" style="width: 50px">
+                    @vacName
+                </th>
+                <th class="text-center" style="width: 10px">
+                    @rozryad
+                </th>
+                <th class="text-center" style="width: 50px">
+                    @prim
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var vac in Model.Vacancies)
+            {
+                <tr class="text-center">
+                    <td>
+                        @count
+                    </td>
+                    <td>
+                        @vac.VacancyName
+                    </td>
+                    <td>
+                        @vac.Rank
+                    </td>
+                    <td>
+                        @vac.Comment
+                    </td>
+                </tr>
+
+                count ++;
+            }
+            </tbody>
+            <tfoot></tfoot>
+        </table>
+
+        <p>
+            Телефон: 222-22-62<br/>
+            @rez - mtmkadr@ukr.net 
+        </p>
+    </div>
+</div>
+
