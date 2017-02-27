@@ -14,11 +14,11 @@ namespace Teploset.Areas.Admin.Controllers
             return View();
         }
 
-        public ActionResult ClearCache()
-        {
-            CcAppRoot.Instance.AppCacheManager.ClearCache();
-            SessionCache.ClearCache();
-            return View("Index");
-        }
+        //public ActionResult ClearCache()
+        //{
+        //    CcAppRoot.Instance.AppCacheManager.ClearCache();
+        //    SessionCache.ClearCache();
+        //    return View("Index");
+        //}
     }
 }
