@@ -1,0 +1,33 @@
+﻿@using Teploset.Classes
+@using Teploset.EF
+
+<ul class="nav" id="side-menu">
+    <li>
+        <a href="#"><i class="fa fa-bars fa-fw"></i> Справочники<span class="fa arrow"></span></a>
+        <ul class="nav nav-second-level collapse">
+           
+        </ul>
+    </li>
+    <li>
+        <a href="#"><i class="fa fa-bars fa-fw"></i> Службы<span class="fa arrow"></span></a>
+        <ul class="nav nav-second-level collapse">
+           
+        </ul>
+    </li>
+    <li>
+        <a href="#"><i class="fa fa-bars fa-fw"></i>Документы<span class="fa arrow"></span></a>
+        <ul class="nav nav-second-level collapse">
+           
+        </ul>
+    </li>
+    <li>
+        <a href="#"><i class="fa fa-bars fa-fw"></i>Отчеты<span class="fa arrow"></span></a>
+        <ul class="nav nav-second-level collapse">
+            @Html.MenuItemForSideMenuAdminArea("Index", "FinOtchet", "Финансовый отчет")
+            @Html.MenuItemForSideMenuAdminArea("Index", "ReportCampMarkSendRequest", "Отправка уведомлений на оценку по заказам")
+            @Html.MenuItemForSideMenuAdminArea("Index", "ReportOrdersByDateArrival", "Ближайшие заезды")
+        </ul>
+    </li>
+    @Html.MenuItemForSideMenuAdminArea("Index", "Post", "Новости", "fa fa-file-text-o fa-fw")
+    @Html.MenuItemForSideMenuAdminArea("ClearCache", "AdminHome", "Очистить кеш", "fa fa-eraser fa-fw")
+</ul>

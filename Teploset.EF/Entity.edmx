@@ -32,6 +32,8 @@
           <Property Name="DateTimeCreate" Type="datetime" Nullable="false" />
           <Property Name="NewsTitle" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="NewsBody" Type="varchar(max)" Nullable="false" />
+          <Property Name="ImageData" Type="varbinary(max)" />
+          <Property Name="ImageMimeType" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="PostCatalog">
           <Key>
@@ -190,6 +192,8 @@
           <Property Name="NewsTitle" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="NewsBody" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="LangCatalog" Relationship="TeplosetModel.FK_LangType_News" FromRole="NewsCatalog" ToRole="LangCatalog" />
+          <Property Name="ImageData" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="ImageMimeType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="PostCatalog">
           <Key>
@@ -303,6 +307,8 @@
           <EntitySetMapping Name="NewsCatalog">
             <EntityTypeMapping TypeName="TeplosetModel.NewsCatalog">
               <MappingFragment StoreEntitySet="NewsCatalog">
+                <ScalarProperty Name="ImageMimeType" ColumnName="ImageMimeType" />
+                <ScalarProperty Name="ImageData" ColumnName="ImageData" />
                 <ScalarProperty Name="NewsBody" ColumnName="NewsBody" />
                 <ScalarProperty Name="NewsTitle" ColumnName="NewsTitle" />
                 <ScalarProperty Name="DateTimeCreate" ColumnName="DateTimeCreate" />

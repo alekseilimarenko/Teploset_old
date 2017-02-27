@@ -31,5 +31,44 @@ namespace Teploset.Classes
 
             return MvcHtmlString.Create(result.ToString());
         }
+
+        public static MvcHtmlString MenuItemForSideMenuAdminArea(
+            this HtmlHelper html,
+            string actionName,
+            string controllerName,
+            string displayText,
+            string iconClass = null,
+            object routeValues = null)
+        {
+            var resultHtml = string.Empty;
+            if (string.IsNullOrEmpty(controllerName)) return new MvcHtmlString(resultHtml);
+
+            var controller = html.ViewContext.Controller;
+            if (controller == null) return new MvcHtmlString(resultHtml);
+
+            //if (!controller.AccessManager.HasAccessToController(controllerName)) return new MvcHtmlString(resultHtml);
+
+            var menuItemDisplayText = displayText;
+            var icon = new TagBuilder("i");
+            if (!string.IsNullOrEmpty(iconClass))
+            {
+                icon.MergeAttribute("class", iconClass);
+                menuItemDisplayText = icon + " " + displayText;
+            }
+
+            var urlHelper = new UrlHelper(html.ViewContext.RequestContext);
+            var url = urlHelper.Action(actionName, controllerName, routeValues);
+
+            var link = new TagBuilder("a");
+            link.MergeAttribute("href", url);
+            link.InnerHtml = menuItemDisplayText;
+
+            var menuItem = new TagBuilder("li");
+            menuItem.InnerHtml = link.ToString();
+
+            resultHtml = menuItem.ToString();
+
+            return new MvcHtmlString(resultHtml);
+        }
     }
 }

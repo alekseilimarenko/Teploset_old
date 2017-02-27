@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/datepicker")
+    <!-- SB admin -->
+    @Styles.Render("~/Content/sbadmin")
+
+    <script src="~/ckeditor/ckeditor.js" type="text/javascript"></script>
+</head>
+<body class="admin-body">
+
+    <div id="wrapper">
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+
+            <div class="navbar-header">
+                <a href="/" class="navbar-brand" style="padding: 4px 4px;">
+                    <img src="~/Content/images/logo_ua.png" class="img-logo" alt="" />
+                    Тепломережа
+                </a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            @*@if (User.Identity.IsAuthenticated)
+            {
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            @Html.ActionLink(User.Identity.GetUserName(), "ChangePassword", "CatalogPerson")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Выйти", "LogOut", "Account", new { area = "" }, null)
+                        </li>
+                    </ul>
+                </div>
+            }*@
+
+            @*@if (Controller != null)
+            {*@
+                <div class="navbar-default sidebar admin-menu" role="navigation">
+                    <div class="sidebar-nav navbar-collapse">
+                        @*@{
+                                var partSideMenuName = "_PartSideMenuContentManager";
+                                if (Controller.AccessManager.IsUserAdmin())
+                                {
+                                    partSideMenuName = "_PartSideMenuAdmin";
+                                }
+                            }
+
+                            @Html.Partial(partSideMenuName)*@
+                        @Html.Partial("_PartSideMenuAdmin")
+                    </div>
+                    <!-- /.sidebar-collapse -->
+                </div>
+            @*}*@
+        </nav>
+
+        <!-- Page Content -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        @RenderBody()
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>
+                &copy; @DateTime.Now.Year - Тепломережа
+            </p>
+        </footer>
+
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/modernizr")
+
+    @Scripts.Render("~/bundles/fancybox")
+    <!-- SB admin -->
+    @Scripts.Render("~/bundles/sbadmin")
+
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>

@@ -20,6 +20,8 @@ namespace Teploset.EF
         public System.DateTime DateTimeCreate { get; set; }
         public string NewsTitle { get; set; }
         public string NewsBody { get; set; }
+        public byte[] ImageData { get; set; }
+        public string ImageMimeType { get; set; }
     
         public virtual LangCatalog LangCatalog { get; set; }
     }

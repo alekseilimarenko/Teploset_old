@@ -48,7 +48,7 @@
                         @post.PostTitle
                     </td>
                     <td class="text-center" style="width: 50px">
-                        @Html.ActionLink(@rm, "Details", new {postId = post.PostId, lang})
+                        @Html.ActionLink(@rm, "Details", new {postId = post.PostId, langType = lang })
                     </td>
                 </tr>
             }

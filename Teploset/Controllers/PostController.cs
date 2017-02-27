@@ -52,7 +52,15 @@ namespace Teploset.Controllers
             ViewBag.Title = langType == "ua" ? "Об'яви" : "Объявления";
             ViewBag.Lang = langType;
 
-            var post = _repository.PostCatalog.GetById(postId);
+            PostCatalog post = null;
+            if (postId != null)
+            {
+                post = _repository.PostCatalog.GetById(postId);
+            }
+            else
+            {
+                return View("Error", postId);
+            }
 
             return View(post);
         }
