@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Web;
 using System.Web.Mvc;
 using Teploset.Models;
 
@@ -23,7 +20,7 @@ namespace Teploset.Classes
                 if (i == pagingInfo.CurrentPage)
                 {
                     tag.AddCssClass("selected");
-                    tag.AddCssClass("btn-primary");
+                    tag.AddCssClass("btn btn-primary");
                 }
                 tag.AddCssClass("btn btn-default");
                 result.Append(tag.ToString());
@@ -63,9 +60,10 @@ namespace Teploset.Classes
             link.MergeAttribute("href", url);
             link.InnerHtml = menuItemDisplayText;
 
-            var menuItem = new TagBuilder("li");
-            menuItem.InnerHtml = link.ToString();
-
+            var menuItem = new TagBuilder("li")
+            {
+                InnerHtml = link.ToString()
+            };
             resultHtml = menuItem.ToString();
 
             return new MvcHtmlString(resultHtml);

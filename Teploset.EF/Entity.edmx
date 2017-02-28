@@ -46,6 +46,23 @@
           <Property Name="PostTitle" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="PostBody" Type="varchar(max)" Nullable="false" />
         </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Login" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="RoleName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="RoleId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
         <EntityType Name="VacancyCatalog">
           <Key>
             <PropertyRef Name="VacId" />
@@ -114,6 +131,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_RoleId_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Function Name="getNewGuid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="param1" Type="uniqueidentifier" Mode="In" />
         </Function>
@@ -122,6 +153,8 @@
           <EntitySet Name="LangCatalog" EntityType="Self.LangCatalog" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NewsCatalog" EntityType="Self.NewsCatalog" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PostCatalog" EntityType="Self.PostCatalog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VacancyCatalog" EntityType="Self.VacancyCatalog" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_LangType_About" Association="Self.FK_LangType_About">
             <End Role="LangCatalog" EntitySet="LangCatalog" />
@@ -138,6 +171,10 @@
           <AssociationSet Name="FK_LangType_Vacancy" Association="Self.FK_LangType_Vacancy">
             <End Role="LangCatalog" EntitySet="LangCatalog" />
             <End Role="VacancyCatalog" EntitySet="VacancyCatalog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoleId_Role" Association="Self.FK_RoleId_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -168,6 +205,12 @@
           <AssociationSet Name="FK_LangType_Vacancy" Association="TeplosetModel.FK_LangType_Vacancy">
             <End Role="LangCatalog" EntitySet="LangCatalog" />
             <End Role="VacancyCatalog" EntitySet="VacancyCatalog" />
+          </AssociationSet>
+          <EntitySet Name="Role" EntityType="TeplosetModel.Role" />
+          <EntitySet Name="User" EntityType="TeplosetModel.User" />
+          <AssociationSet Name="FK_RoleId_Role" Association="TeplosetModel.FK_RoleId_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="AboutCatalog">
@@ -287,6 +330,39 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="User" Relationship="TeplosetModel.FK_RoleId_Role" FromRole="Role" ToRole="User" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Login" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="RoleName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RoleId" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Role" Relationship="TeplosetModel.FK_RoleId_Role" FromRole="User" ToRole="Role" />
+        </EntityType>
+        <Association Name="FK_RoleId_Role">
+          <End Type="TeplosetModel.Role" Role="Role" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="TeplosetModel.User" Role="User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -349,6 +425,25 @@
               <MappingFragment StoreEntitySet="LangCatalog">
                 <ScalarProperty Name="LangTypeName" ColumnName="LangTypeName" />
                 <ScalarProperty Name="LangTypeId" ColumnName="LangTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Role">
+            <EntityTypeMapping TypeName="TeplosetModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="TeplosetModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

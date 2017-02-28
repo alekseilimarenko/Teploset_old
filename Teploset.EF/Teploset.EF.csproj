@@ -109,6 +109,9 @@
     </Compile>
     <Compile Include="PartEntity.cs" />
     <Compile Include="RepAboutCatalog.cs" />
+    <Compile Include="Role.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
     <Compile Include="TeplosetUnitOfWork.cs" />
     <Compile Include="RepVacancyCatalog.cs" />
     <Compile Include="Entity.Context.cs">
@@ -139,6 +142,9 @@
     </Compile>
     <Compile Include="RepPostCatalog.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="User.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
     <Compile Include="UtilsConnection.cs" />
     <Compile Include="VacancyCatalog.cs">
       <DependentUpon>Entity.tt</DependentUpon>

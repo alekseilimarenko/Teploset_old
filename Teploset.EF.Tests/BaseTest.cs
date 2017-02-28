@@ -11,7 +11,7 @@ namespace Teploset.EF.Tests
         [TestInitialize]
         public void Initialize()
         {
-            const bool isLocal = true;
+            //const bool isLocal = true;
             var p = UtilsConnection.GetDefaultEntitiesMssqlConnectionParams();
             Entities Db = UtilsConnection.GetInternalEntities(p);
             teplosetUnit = new TeplosetUnitOfWork(Db);
