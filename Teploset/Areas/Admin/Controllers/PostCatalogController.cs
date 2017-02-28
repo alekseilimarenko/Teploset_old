@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace Teploset.Areas.Admin.Controllers
 {
-    public class PostController : Controller
+    public class PostCatalogController : Controller
     {
         // GET: Admin/Post
         public ActionResult Index()

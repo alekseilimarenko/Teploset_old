@@ -14,6 +14,9 @@
         <AssociationConnector Association="TeplosetModel.FK_LangType_News" />
         <AssociationConnector Association="TeplosetModel.FK_LangType_Post" />
         <AssociationConnector Association="TeplosetModel.FK_LangType_Vacancy" />
+        <EntityTypeShape EntityType="TeplosetModel.Role" Width="1.5" PointX="5.375" PointY="7.125" />
+        <EntityTypeShape EntityType="TeplosetModel.User" Width="1.5" PointX="7.625" PointY="6.875" />
+        <AssociationConnector Association="TeplosetModel.FK_RoleId_Role" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
