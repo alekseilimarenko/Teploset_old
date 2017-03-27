@@ -53,11 +53,12 @@
       <HintPath>..\packages\Castle.Core.3.3.3\lib\net45\Castle.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="devuaSmtpUtils">
-      <HintPath>..\..\..\..\Desktop\devuaSmtpUtils.dll</HintPath>
-    </Reference>
-    <Reference Include="devuaUtils2014">
+    <Reference Include="devuaUtils2014, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\Desktop\devuaUtils2014.dll</HintPath>
+    </Reference>
+    <Reference Include="devuaUtilsMsSql">
+      <HintPath>..\..\..\..\Desktop\devuaUtilsMsSql.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>

@@ -30,8 +30,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="devuaSmtpUtils">
-      <HintPath>..\..\..\..\Desktop\devuaSmtpUtils.dll</HintPath>
+    <Reference Include="devuaUtils2014">
+      <HintPath>..\..\..\..\Desktop\devuaUtils2014.dll</HintPath>
     </Reference>
     <Reference Include="devuaUtilsMsSql">
       <HintPath>..\..\..\..\Desktop\devuaUtilsMsSql.dll</HintPath>

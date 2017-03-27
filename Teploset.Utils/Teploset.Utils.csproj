@@ -30,6 +30,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="devuaUtils2014">
+      <HintPath>..\..\..\..\Desktop\devuaUtils2014.dll</HintPath>
+    </Reference>
+    <Reference Include="devuaUtilsMsSql">
+      <HintPath>..\..\..\..\Desktop\devuaUtilsMsSql.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />

@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using devuaUtilsMsSql;
 using devuaUtilsMsSql.Objects;
 
 namespace Teploset.EF
